@@ -205,38 +205,59 @@ const NexGenStore = {
     ]
   },
 
+  // Memory fallback when localStorage is blocked by tracking prevention
+  _memoryStore: {},
+
+  _hasStorage() {
+    try {
+      const testKey = '__nexgen_test__';
+      localStorage.setItem(testKey, testKey);
+      localStorage.removeItem(testKey);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  },
+
   // Init Data Store
   init() {
-    if (!localStorage.getItem("nexgen_events")) {
-      localStorage.setItem("nexgen_events", JSON.stringify(this.defaults.events));
-    }
-    if (!localStorage.getItem("nexgen_courses")) {
-      localStorage.setItem("nexgen_courses", JSON.stringify(this.defaults.courses));
-    }
-    if (!localStorage.getItem("nexgen_gallery")) {
-      localStorage.setItem("nexgen_gallery", JSON.stringify(this.defaults.gallery));
-    }
-    if (!localStorage.getItem("nexgen_testimonials")) {
-      localStorage.setItem("nexgen_testimonials", JSON.stringify(this.defaults.testimonials));
-    }
-    if (!localStorage.getItem("nexgen_leads")) {
-      localStorage.setItem("nexgen_leads", JSON.stringify(this.defaults.leads));
-    }
+    const hasStorage = this._hasStorage();
+    const keys = ['events', 'courses', 'gallery', 'testimonials', 'leads'];
+    
+    keys.forEach(k => {
+      if (hasStorage) {
+        try {
+          if (!localStorage.getItem(`nexgen_${k}`)) {
+            localStorage.setItem(`nexgen_${k}`, JSON.stringify(this.defaults[k]));
+          }
+        } catch (e) {
+          if (!this._memoryStore[k]) this._memoryStore[k] = [...this.defaults[k]];
+        }
+      } else {
+        if (!this._memoryStore[k]) this._memoryStore[k] = [...this.defaults[k]];
+      }
+    });
   },
 
   // Getters
   get(key) {
-    this.init();
     try {
-      return JSON.parse(localStorage.getItem(`nexgen_${key}`)) || this.defaults[key];
-    } catch (e) {
-      return this.defaults[key];
-    }
+      if (this._hasStorage()) {
+        const item = localStorage.getItem(`nexgen_${key}`);
+        return item ? JSON.parse(item) : (this._memoryStore[key] || this.defaults[key]);
+      }
+    } catch (e) {}
+    return this._memoryStore[key] || this.defaults[key] || [];
   },
 
   // Setters
   set(key, data) {
-    localStorage.setItem(`nexgen_${key}`, JSON.stringify(data));
+    this._memoryStore[key] = data;
+    try {
+      if (this._hasStorage()) {
+        localStorage.setItem(`nexgen_${key}`, JSON.stringify(data));
+      }
+    } catch (e) {}
   },
 
   // Add Item
@@ -277,4 +298,8 @@ const NexGenStore = {
   }
 };
 
-NexGenStore.init();
+try {
+  NexGenStore.init();
+} catch (e) {
+  console.warn("Storage initialized with memory fallback.");
+}
