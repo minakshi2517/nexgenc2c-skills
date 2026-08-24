@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "NexGen C2C Skills - AI, Industrial & Corporate Training Platform",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node dev-server.js",
+    "dev": "node dev-server.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
