@@ -2,8 +2,9 @@
   "name": "nexgen-c2c-skills",
   "version": "1.0.0",
   "description": "NexGen C2C Skills - AI, Industrial & Corporate Training Platform",
+  "main": "index.js",
   "scripts": {
-    "build": "echo 'Build successful'",
+    "build": "echo 'Build ready'",
     "start": "node dev-server.js",
     "dev": "node dev-server.js"
   },
