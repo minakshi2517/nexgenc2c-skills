@@ -11,28 +11,35 @@
   <link rel="stylesheet" href="assets/css/animations.css?v=2.1">
 </head>
 <body>
+  <!-- Ambient Canvas Background -->
   <canvas id="bg-canvas"></canvas>
+
+  <!-- LIVE EVENTS TICKER -->
+  <div class="events-ticker-bar">
+    <div class="ticker-label">
+      <i class="fas fa-bullhorn"></i> <span>LIVE EVENTS:</span>
+    </div>
+    <div class="ticker-track-wrapper">
+      <div id="dynamic-ticker-track" class="ticker-track"></div>
+    </div>
+  </div>
 
   <header class="header-nav">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <img src="assets/images/logo.png" alt="NexGen C2C Skills Official Logo" width="54" height="54">
-        <div class="brand-text">
-          <span class="brand-title">NexGen</span>
-          <span class="brand-subtitle">C2C Skills</span>
-        </div>
+        <img src="assets/images/logo.png" alt="NexGen C2C Skills Official Logo" width="180" height="52">
       </a>
 
       <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="career-path.html" class="nav-link">Choose Your Career Path</a></li>
         <li><a href="about.html" class="nav-link">About Us</a></li>
         <li class="nav-dropdown">
           <a href="programs.html" class="nav-link"><span>Our Programs</span> <i class="fas fa-chevron-down" style="font-size:0.75rem;"></i></a>
           <ul class="dropdown-menu">
             <li class="dropdown-item"><a href="programs.html"><i class="fas fa-th-large"></i> All Programs Overview</a></li>
-            <li class="dropdown-item"><a href="ai-training.html"><i class="fas fa-robot"></i> AI Training Programs</a></li>
-            <li class="dropdown-item"><a href="c2c-skills.html"><i class="fas fa-users-cog"></i> Campus to Corporate (C2C)</a></li>
-            <li class="dropdown-item"><a href="industrial-training.html"><i class="fas fa-cogs"></i> Industrial Oriented Training</a></li>
+            <li class="dropdown-item"><a href="programs.html#ai-section"><i class="fas fa-robot"></i> Artificial Intelligence</a></li>
+            <li class="dropdown-item"><a href="programs.html#op-section"><i class="fas fa-chart-line"></i> Operational Excellence</a></li>
+            <li class="dropdown-item"><a href="programs.html#tech-section"><i class="fas fa-cogs"></i> Industrial Tech</a></li>
           </ul>
         </li>
         <li><a href="events.html" class="nav-link">Upcoming Events</a></li>
@@ -52,8 +59,8 @@
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <span class="pill-badge gold"><i class="fas fa-headset"></i> GET IN TOUCH</span>
-      <h1 class="page-hero-title">Contact <span class="gold-gradient-text">NexGen Advisors</span></h1>
+      <span class="pill-badge white-theme"><i class="fas fa-headset"></i> GET IN TOUCH</span>
+      <h1 class="page-hero-title">Contact NexGen Advisors</h1>
       <p class="page-hero-desc">
         Have questions about our training tracks, batch schedules, college tie-ups, or custom enterprise workshops? We are here to help.
       </p>
@@ -67,74 +74,74 @@
         <!-- Contact Info Left Column -->
         <div class="contact-info-col">
           <div>
-            <span class="pill-badge navy-theme"><i class="fas fa-map-marker-alt"></i> HEADQUARTERS & SUPPORT</span>
-            <h2 style="font-size: 2.2rem; color: var(--navy-deep); font-family: var(--font-serif); margin: 1rem 0 0.8rem 0;">Direct Contact <span class="gold-text">Channels</span></h2>
+            <span class="pill-badge midnight"><i class="fas fa-map-marker-alt"></i> HEADQUARTERS &amp; SUPPORT</span>
+            <h2 style="font-size: 2.2rem; color: var(--midnight-indigo); font-weight:800; margin: 1rem 0 0.8rem 0;">Direct Contact <span style="color:var(--logo-red);">Channels</span></h2>
             <p style="color: var(--text-body-dark); line-height: 1.65; font-size: 0.95rem;">
-              Reach out via phone, email, or direct WhatsApp. Our senior academic coordinators respond within 15 minutes during working hours.
+              Reach out via phone, email, or direct WhatsApp. Our senior academic coordinators respond promptly during working hours.
             </p>
 
             <div class="contact-methods">
               <div class="contact-method-item">
                 <div class="contact-icon-box"><i class="fas fa-phone-alt"></i></div>
                 <div>
-                  <small style="color: var(--text-secondary); display: block; text-transform: uppercase; font-weight: 600; font-size: 0.75rem;">Direct Phone / Helpline</small>
-                  <a href="tel:+917078437914" style="color: var(--navy-deep); font-size: 1.2rem; font-weight: 700;">+91 7078437914</a>
+                  <small style="color: var(--text-secondary); display: block; text-transform: uppercase; font-weight: 700; font-size: 0.75rem;">Direct Phone / Helpline</small>
+                  <a href="tel:+917078437914" style="color: var(--midnight-indigo); font-size: 1.2rem; font-weight: 800;">+91 7078437914</a>
                 </div>
               </div>
 
               <div class="contact-method-item">
-                <div class="contact-icon-box" style="background: rgba(197, 160, 89, 0.2); color: var(--gold-dark);">
+                <div class="contact-icon-box">
                   <i class="fas fa-envelope"></i>
                 </div>
                 <div>
-                  <small style="color: var(--text-secondary); display: block; text-transform: uppercase; font-weight: 600; font-size: 0.75rem;">Official Inquiries</small>
-                  <a href="mailto:Info@nexgenc2cskills.com" style="color: var(--navy-deep); font-size: 1.15rem; font-weight: 700;">Info@nexgenc2cskills.com</a>
+                  <small style="color: var(--text-secondary); display: block; text-transform: uppercase; font-weight: 700; font-size: 0.75rem;">Official Inquiries</small>
+                  <a href="mailto:Info@nexgenc2cskills.com" style="color: var(--midnight-indigo); font-size: 1.15rem; font-weight: 800;">Info@nexgenc2cskills.com</a>
                 </div>
               </div>
 
               <div class="contact-method-item">
-                <div class="contact-icon-box" style="background: rgba(16, 185, 129, 0.15); color: #059669;">
+                <div class="contact-icon-box" style="background: rgba(18, 70, 34, 0.1); color: var(--deep-forest);">
                   <i class="fas fa-globe"></i>
                 </div>
                 <div>
-                  <small style="color: var(--text-secondary); display: block; text-transform: uppercase; font-weight: 600; font-size: 0.75rem;">Official Web Portal</small>
-                  <a href="https://www.nexgenc2cskills.com" target="_blank" rel="noopener" style="color: var(--navy-deep); font-size: 1.15rem; font-weight: 700;">www.nexgenc2cskills.com</a>
+                  <small style="color: var(--text-secondary); display: block; text-transform: uppercase; font-weight: 700; font-size: 0.75rem;">Official Web Portal</small>
+                  <a href="https://www.nexgenc2cskills.com" target="_blank" rel="noopener" style="color: var(--midnight-indigo); font-size: 1.15rem; font-weight: 800;">www.nexgenc2cskills.com</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div style="background: var(--beige-cream); border:1px solid var(--beige-sand); border-radius:var(--radius-md); padding:1.4rem;">
-            <strong style="color:var(--navy-deep); display:block; margin-bottom:0.4rem;"><i class="fas fa-clock" style="color:var(--gold-dark);"></i> Working Hours:</strong>
-            <p style="font-size:0.9rem; color:var(--text-body-dark); margin:0; line-height: 1.5;">Monday to Saturday: 09:00 AM – 07:00 PM IST (WhatsApp support 24/7)</p>
+          <div style="background: #FFFFFF; border:1px solid var(--border-light-gray); border-radius:var(--radius-md); padding:1.4rem; box-shadow:var(--shadow-luxury);">
+            <strong style="color:var(--midnight-indigo); display:block; margin-bottom:0.4rem;"><i class="fas fa-clock" style="color:var(--logo-red);"></i> Working Hours:</strong>
+            <p style="font-size:0.9rem; color:var(--text-body-dark); margin:0; line-height: 1.5;">Monday to Saturday: 09:00 AM – 07:00 PM IST (WhatsApp support available)</p>
           </div>
         </div>
 
         <!-- Contact Lead Form -->
-        <div>
-          <form id="main-contact-form" class="contact-form">
-            <h3 style="font-size: 1.8rem; color: var(--navy-deep); font-family: var(--font-serif); margin-bottom: 0.4rem;">Send Us an <span class="gold-text">Inquiry</span></h3>
-            <p style="color: var(--text-body-dark); font-size: 0.92rem; margin-bottom: 1.2rem;">Your inquiry will be logged in our portal and forwarded directly to WhatsApp.</p>
+        <div class="contact-form-box">
+          <form id="main-contact-form">
+            <h3 style="font-size: 1.8rem; color: var(--midnight-indigo); font-weight:800; margin-bottom: 0.4rem;">Send Us an <span style="color:var(--logo-red);">Inquiry</span></h3>
+            <p style="color: var(--text-body-dark); font-size: 0.92rem; margin-bottom: 1.4rem;">Your inquiry will be logged in our portal and forwarded directly to our academic team.</p>
 
             <div class="form-group">
-              <label for="form-name">Full Name *</label>
+              <label for="form-name" class="form-label">Full Name *</label>
               <input type="text" id="form-name" class="form-control" placeholder="e.g. Rahul Sharma" required>
             </div>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
               <div class="form-group">
-                <label for="form-phone">WhatsApp Number *</label>
+                <label for="form-phone" class="form-label">WhatsApp Number *</label>
                 <input type="tel" id="form-phone" class="form-control" placeholder="e.g. 9876543210" required>
               </div>
               <div class="form-group">
-                <label for="form-email">Email Address</label>
+                <label for="form-email" class="form-label">Email Address</label>
                 <input type="email" id="form-email" class="form-control" placeholder="rahul@example.com">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="form-track">Select Program *</label>
-              <select id="form-track" class="form-control" required>
+              <label for="form-track" class="form-label">Select Program *</label>
+              <select id="form-track" class="form-select" required>
                 <option value="Artificial Intelligence Training Programs">01 | Artificial Intelligence Training Programs</option>
                 <option value="Campus to Corporate (C2C) Leadership Solutions">02 | Campus to Corporate (C2C) Leadership Solutions</option>
                 <option value="Industrial Oriented Training (Lean, PLC & Robotics)">03 | Industrial Oriented Training (Lean, PLC & Robotics)</option>
@@ -144,12 +151,12 @@
             </div>
 
             <div class="form-group">
-              <label for="form-message">Message / Notes</label>
-              <textarea id="form-message" rows="3" class="form-control" placeholder="Ask questions regarding batch schedules, fees, or custom requirements..."></textarea>
+              <label for="form-message" class="form-label">Message / Notes</label>
+              <textarea id="form-message" rows="3" class="form-textarea" placeholder="Ask questions regarding batch schedules, fees, or custom requirements..."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <span>Submit & Connect with Advisor</span> <i class="fas fa-paper-plane"></i>
+              <span>Submit &amp; Connect with Advisor</span> <i class="fas fa-paper-plane"></i>
             </button>
           </form>
         </div>
@@ -168,12 +175,48 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-bottom">
-        <div>© 2026 <strong>NexGen C2C Skills</strong>. All Rights Reserved. Building Future-Ready Talent.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="index.html">Home</a>
-          <a href="contact.html">Contact</a>
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 1.2rem;">
+            <img src="assets/images/logo.png" alt="NexGen C2C Skills Logo" width="170" height="48">
+          </div>
+          <p style="color:#FFFFFF; font-size:0.9rem; line-height:1.7; margin-bottom:1.5rem;">
+            India’s premier institution for building future-ready capabilities. Guidance from IIT &amp; IIM alumni.
+          </p>
+          <p style="color:#FFFFFF; font-size:0.85rem; font-weight:700;">
+            <i class="fas fa-shield-alt" style="color:var(--warm-coral);"></i> Trusted by Clients – Terra Motors, Terra Charge, Evstar, CityPlug, etc
+          </p>
         </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="career-path.html">Choose Your Career Path</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Training Verticals</h4>
+          <ul class="footer-links">
+            <li><a href="programs.html#ai-section">Artificial Intelligence</a></li>
+            <li><a href="programs.html#op-section">Operational Excellence</a></li>
+            <li><a href="programs.html#tech-section">Industrial Tech</a></li>
+            <li><a href="book-demo.html">Book Free Demo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Contact &amp; Admissions</h4>
+          <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:0.6rem;"><i class="fas fa-phone-alt" style="color:var(--warm-coral);"></i> +91 7078437914</p>
+          <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:0.6rem;"><i class="fas fa-envelope" style="color:var(--warm-coral);"></i> <a href="mailto:info@nexgenc2cskills.com" style="color:#FFFFFF;">info@nexgenc2cskills.com</a></p>
+          <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:1.2rem;"><i class="fas fa-map-marker-alt" style="color:var(--warm-coral);"></i> Noida &amp; Greater Noida, NCR, India</p>
+          <a href="book-demo.html" class="btn btn-sm btn-primary" style="width:100%;">Book Free Demo Class</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 NexGen C2C Skills. All rights reserved.</div>
+        <div class="powered-by">Powered by <a href="https://fiveps.in" target="_blank" rel="noopener" class="powered-link">Fiveps Digital</a></div>
       </div>
     </div>
   </footer>

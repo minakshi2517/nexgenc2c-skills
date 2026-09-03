@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 38" height="38" width="140" fill="none">
+  <!-- Lumax Red Modern Italic Logo -->
+  <g transform="translate(4, 5)">
+    <rect width="26" height="26" rx="6" fill="#040F49"/>
+    <text x="13" y="19" font-family="'Outfit', sans-serif" font-weight="900" font-size="16" fill="#D40404" text-anchor="middle">L</text>
+  </g>
+  <!-- Text -->
+  <text x="38" y="23" font-family="'Outfit', sans-serif" font-weight="900" font-style="italic" font-size="18" fill="#D40404" letter-spacing="0.04em">LUMAX</text>
+  <text x="39" y="32" font-family="'Inter', sans-serif" font-weight="700" font-size="6" fill="#64748B" letter-spacing="0.14em">DK JAIN GROUP</text>
+</svg>

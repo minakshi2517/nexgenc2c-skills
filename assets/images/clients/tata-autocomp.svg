@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 38" height="38" width="160" fill="none">
+  <!-- TATA Emblem -->
+  <g transform="translate(4, 5)">
+    <rect width="26" height="26" rx="13" fill="#005696"/>
+    <text x="13" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.02em">T</text>
+  </g>
+  <!-- Text -->
+  <text x="38" y="19" font-family="'Outfit', sans-serif" font-weight="900" font-size="14" fill="#005696" letter-spacing="0.08em">TATA</text>
+  <text x="39" y="30" font-family="'Inter', sans-serif" font-weight="800" font-size="7.5" fill="#040F49" letter-spacing="0.1em">AUTOCOMP</text>
+</svg>

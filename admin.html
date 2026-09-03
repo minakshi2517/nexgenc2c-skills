@@ -31,15 +31,15 @@
     </div>
 
     <!-- Auth Card -->
-    <div style="width:100%; max-width:460px; background:rgba(11,25,44,0.9); border:1px solid rgba(212,160,23,0.3); border-radius:16px; padding:2.5rem; box-shadow:0 30px 70px rgba(0,0,0,0.6); backdrop-filter:blur(16px); text-align:center;">
+    <div style="width:100%; max-width:460px; background:rgba(7,22,44,0.95); border:1px solid rgba(217,26,42,0.3); border-radius:16px; padding:2.5rem; box-shadow:0 30px 70px rgba(0,0,0,0.6); backdrop-filter:blur(16px); text-align:center;">
       
       <!-- Brand Logo / Badge -->
       <div style="margin-bottom:1.5rem;">
-        <div style="width:72px; height:72px; margin:0 auto 1rem auto; border-radius:50%; background:radial-gradient(circle, rgba(212,160,23,0.2) 0%, rgba(7,21,43,0.8) 100%); border:1px solid var(--gold-primary); display:flex; align-items:center; justify-content:center; box-shadow:0 0 25px rgba(212,160,23,0.25);">
-          <i class="fas fa-user-shield" style="font-size:1.8rem; color:var(--gold-light);"></i>
+        <div style="width:72px; height:72px; margin:0 auto 1rem auto; border-radius:50%; background:radial-gradient(circle, rgba(217,26,42,0.2) 0%, rgba(7,22,44,0.8) 100%); border:1px solid var(--red-primary); display:flex; align-items:center; justify-content:center; box-shadow:0 0 25px rgba(217,26,42,0.25);">
+          <i class="fas fa-user-shield" style="font-size:1.8rem; color:var(--red-light);"></i>
         </div>
-        <h2 style="color:#ffffff; font-size:1.5rem; font-family:var(--font-serif); margin-bottom:0.3rem;">NexGen Admin Portal</h2>
-        <p style="color:var(--beige-sand); font-size:0.85rem;">Protected & Encrypted Management Gateway</p>
+        <h2 style="color:#ffffff; font-size:1.5rem; font-family:var(--font-serif); margin-bottom:0.3rem;"><span class="brand-nex" style="color:#fff;">Nex</span><span class="brand-gen" style="color:var(--red-primary);">Gen</span> Admin Portal</h2>
+        <p style="color:var(--text-muted-light); font-size:0.85rem;">Protected & Encrypted Management Gateway</p>
       </div>
 
       <!-- Step 1: Email & Password Form -->
@@ -50,16 +50,16 @@
 
         <div class="form-group" style="margin-bottom:1.2rem;">
           <label style="color:#e2e8f0; font-size:0.85rem; font-weight:600; display:block; margin-bottom:0.4rem;">
-            <i class="fas fa-envelope" style="color:var(--gold-primary); margin-right:0.4rem;"></i> Admin Email Address
+            <i class="fas fa-envelope" style="color:var(--red-primary); margin-right:0.4rem;"></i> Admin Email Address
           </label>
-          <input type="email" id="auth-email" class="form-control" placeholder="Enter authorized admin email" required style="background:rgba(5,9,20,0.8); border:1px solid rgba(212,160,23,0.3); color:#fff; padding:0.8rem 1rem; border-radius:8px; width:100%;">
+          <input type="email" id="auth-email" class="form-control" placeholder="Enter authorized admin email" required style="background:rgba(5,9,20,0.8); border:1px solid rgba(217,26,42,0.3); color:#fff; padding:0.8rem 1rem; border-radius:8px; width:100%;">
         </div>
 
         <div class="form-group" style="margin-bottom:1.6rem;">
           <label style="color:#e2e8f0; font-size:0.85rem; font-weight:600; display:block; margin-bottom:0.4rem;">
-            <i class="fas fa-key" style="color:var(--gold-primary); margin-right:0.4rem;"></i> Master Password
+            <i class="fas fa-key" style="color:var(--red-primary); margin-right:0.4rem;"></i> Master Password
           </label>
-          <input type="password" id="auth-password" class="form-control" placeholder="Enter master password" required style="background:rgba(5,9,20,0.8); border:1px solid rgba(212,160,23,0.3); color:#fff; padding:0.8rem 1rem; border-radius:8px; width:100%;">
+          <input type="password" id="auth-password" class="form-control" placeholder="Enter master password" required style="background:rgba(5,9,20,0.8); border:1px solid rgba(217,26,42,0.3); color:#fff; padding:0.8rem 1rem; border-radius:8px; width:100%;">
         </div>
 
         <button type="submit" id="btn-step1-submit" class="btn btn-primary" style="width:100%; padding:0.85rem; font-weight:700; display:flex; justify-content:center; align-items:center; gap:0.5rem;">
@@ -75,10 +75,10 @@
 
       <!-- Step 2: 2-Factor Email OTP Verification Form -->
       <form id="admin-login-step2" onsubmit="handleStep2Submit(event)" style="display:none; text-align:left;">
-        <div style="background:rgba(212,160,23,0.08); border:1px solid rgba(212,160,23,0.2); border-radius:10px; padding:1rem; margin-bottom:1.5rem; text-align:center;">
-          <p style="color:var(--beige-sand); font-size:0.85rem; margin:0;">
+        <div style="background:rgba(217,26,42,0.08); border:1px solid rgba(217,26,42,0.2); border-radius:10px; padding:1rem; margin-bottom:1.5rem; text-align:center;">
+          <p style="color:var(--text-muted-light); font-size:0.85rem; margin:0;">
             A 6-digit verification code was sent to:<br>
-            <strong id="auth-display-email" style="color:#ffffff; font-size:0.95rem;">admin@nexgenc2cskills.com</strong>
+            <strong id="auth-display-email" style="color:var(--red-light); font-size:0.95rem;">admin@nexgenc2cskills.com</strong>
           </p>
         </div>
 
@@ -92,12 +92,12 @@
 
         <!-- 6 OTP Input Boxes -->
         <div style="display:flex; justify-content:space-between; gap:0.5rem; margin-bottom:1.5rem;">
-          <input type="text" maxlength="1" class="otp-digit" data-index="0" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(212,160,23,0.4); color:var(--gold-light); border-radius:8px;" autofocus>
-          <input type="text" maxlength="1" class="otp-digit" data-index="1" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(212,160,23,0.4); color:var(--gold-light); border-radius:8px;">
-          <input type="text" maxlength="1" class="otp-digit" data-index="2" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(212,160,23,0.4); color:var(--gold-light); border-radius:8px;">
-          <input type="text" maxlength="1" class="otp-digit" data-index="3" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(212,160,23,0.4); color:var(--gold-light); border-radius:8px;">
-          <input type="text" maxlength="1" class="otp-digit" data-index="4" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(212,160,23,0.4); color:var(--gold-light); border-radius:8px;">
-          <input type="text" maxlength="1" class="otp-digit" data-index="5" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(212,160,23,0.4); color:var(--gold-light); border-radius:8px;">
+          <input type="text" maxlength="1" class="otp-digit" data-index="0" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(217,26,42,0.4); color:#fff; border-radius:8px;" autofocus>
+          <input type="text" maxlength="1" class="otp-digit" data-index="1" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(217,26,42,0.4); color:#fff; border-radius:8px;">
+          <input type="text" maxlength="1" class="otp-digit" data-index="2" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(217,26,42,0.4); color:#fff; border-radius:8px;">
+          <input type="text" maxlength="1" class="otp-digit" data-index="3" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(217,26,42,0.4); color:#fff; border-radius:8px;">
+          <input type="text" maxlength="1" class="otp-digit" data-index="4" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(217,26,42,0.4); color:#fff; border-radius:8px;">
+          <input type="text" maxlength="1" class="otp-digit" data-index="5" style="width:50px; height:56px; text-align:center; font-size:1.5rem; font-weight:bold; background:rgba(5,9,20,0.9); border:1px solid rgba(217,26,42,0.4); color:#fff; border-radius:8px;">
         </div>
 
         <button type="submit" class="btn btn-primary" style="width:100%; padding:0.85rem; font-weight:700; display:flex; justify-content:center; align-items:center; gap:0.5rem;">
@@ -105,10 +105,10 @@
         </button>
 
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.4rem; font-size:0.82rem;">
-          <a href="#" onclick="backToStep1(event)" style="color:var(--beige-sand); text-decoration:none;">
+          <a href="#" onclick="backToStep1(event)" style="color:var(--text-muted-light); text-decoration:none;">
             <i class="fas fa-arrow-left"></i> Change Email
           </a>
-          <a href="#" id="resend-otp-btn" onclick="resendOtpCode(event)" style="color:var(--gold-light); text-decoration:none; font-weight:600;">
+          <a href="#" id="resend-otp-btn" onclick="resendOtpCode(event)" style="color:var(--red-light); text-decoration:none; font-weight:600;">
             <i class="fas fa-redo-alt"></i> Resend Code
           </a>
         </div>
@@ -123,11 +123,7 @@
   <header class="header-nav" style="border-bottom:1px solid var(--border-subtle);">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <img src="assets/images/logo.png" alt="NexGen C2C Skills Official Logo" width="46" height="46">
-        <div class="brand-text">
-          <span class="brand-title" style="font-size:1.2rem;">NexGen Admin</span>
-          <span class="brand-subtitle">CMS & Lead Portal</span>
-        </div>
+        <img src="assets/images/logo.png" alt="NexGen C2C Skills Official Logo" width="160" height="46">
       </a>
 
       <div style="display:flex; align-items:center; gap:1.2rem;">

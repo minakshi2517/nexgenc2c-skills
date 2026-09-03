@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 38" height="38" width="150" fill="none">
+  <!-- CityPlug Mark -->
+  <g transform="translate(4, 5)">
+    <circle cx="13" cy="13" r="13" fill="#072450"/>
+    <path d="M10 8 L10 11 M16 8 L16 11 M8 11 L18 11 C18 15 15.5 17 13 17 L13 21" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="13" cy="13" r="2.5" fill="#D40404"/>
+  </g>
+  <!-- Text -->
+  <text x="38" y="22" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-weight="900" font-size="15" fill="#072450" letter-spacing="-0.02em">City<tspan fill="#D40404">Plug</tspan></text>
+  <text x="39" y="31" font-family="'Inter', sans-serif" font-weight="700" font-size="6.5" fill="#64748B" letter-spacing="0.14em">SMART CHARGING</text>
+</svg>

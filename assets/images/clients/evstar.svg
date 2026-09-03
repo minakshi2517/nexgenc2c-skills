@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 38" height="38" width="150" fill="none">
+  <!-- EVSTAR Emblem -->
+  <g transform="translate(4, 5)">
+    <rect width="26" height="26" rx="6" fill="#D40404"/>
+    <path d="M13 5 L15 10.5 L21 11 L16.5 15 L18 21 L13 17.5 L8 21 L9.5 15 L5 11 L11 10.5 Z" fill="#FFFFFF"/>
+  </g>
+  <!-- Text -->
+  <text x="38" y="22" font-family="'Outfit', 'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="16" fill="#040F49" letter-spacing="0.04em">EVSTAR</text>
+  <text x="39" y="31" font-family="'Inter', sans-serif" font-weight="700" font-size="6.5" fill="#D40404" letter-spacing="0.16em">MOBILITY TECH</text>
+</svg>

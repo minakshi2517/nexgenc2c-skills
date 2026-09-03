@@ -7,6 +7,64 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Executive Brand Theme
   document.documentElement.removeAttribute('data-theme');
 
+  // Apply Official NexGen Brand Graphic Wordmark across all visible text nodes
+  function applyBrandWordmark(root = document.body) {
+    if (!root) return;
+    const walker = document.createTreeWalker(
+      root,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode(node) {
+          if (!node.nodeValue || !node.nodeValue.match(/NexGen|Next\s*Gen/i)) return NodeFilter.FILTER_REJECT;
+          // Strictly protect email addresses and URLs
+          if (node.nodeValue.includes('@') || node.nodeValue.includes('http') || node.nodeValue.includes('.com')) return NodeFilter.FILTER_REJECT;
+          const parent = node.parentElement;
+          if (!parent) return NodeFilter.FILTER_REJECT;
+          const tag = parent.tagName.toLowerCase();
+          if (['script', 'style', 'noscript', 'textarea', 'input', 'select', 'option', 'title', 'code', 'pre'].includes(tag)) return NodeFilter.FILTER_REJECT;
+          if (parent.closest('a[href^="mailto:"], a[href^="tel:"], .brand-wordmark, .brand-inline, .brand-logo, .client-chip, .events-ticker-bar')) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+
+    const nodesToReplace = [];
+    while (walker.nextNode()) {
+      nodesToReplace.push(walker.currentNode);
+    }
+
+    nodesToReplace.forEach(textNode => {
+      const parent = textNode.parentNode;
+      if (!parent) return;
+      const originalText = textNode.nodeValue;
+      const frag = document.createDocumentFragment();
+      
+      const parts = originalText.split(/(NexGen|Next\s*Gen)/i);
+      let changed = false;
+
+      parts.forEach(part => {
+        if (/^(NexGen|Next\s*Gen)$/i.test(part)) {
+          changed = true;
+          const img = document.createElement('img');
+          img.className = 'nexgen-inline-img';
+          img.src = 'assets/images/nexgen-wordmark.png';
+          img.alt = 'NexGen';
+          frag.appendChild(img);
+        } else if (part.length > 0) {
+          frag.appendChild(document.createTextNode(part));
+        }
+      });
+
+      if (changed) {
+        parent.replaceChild(frag, textNode);
+      }
+    });
+  }
+
+  applyBrandWordmark();
+  setTimeout(() => applyBrandWordmark(), 150);
+  setTimeout(() => applyBrandWordmark(), 500);
+
 
   // 2. Sticky Navbar & Back to Top Button
   const navbar = document.querySelector('.header-nav');
@@ -402,35 +460,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Brochure Form
-  const brochureForm = document.getElementById('brochure-download-form');
-  if (brochureForm) {
-    brochureForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('b-name').value;
-      const phone = document.getElementById('b-phone').value;
-      const course = document.getElementById('modal-course-title').textContent;
+  // 6. Moving Landing Pages Slider (Left-to-Right Animated Carousel)
+  const sliderTrack = document.getElementById('moving-slider-track');
+  const slides = document.querySelectorAll('.moving-slide');
+  const prevBtn = document.getElementById('slider-prev');
+  const nextBtn = document.getElementById('slider-next');
+  const dots = document.querySelectorAll('.dot-btn');
+  let currentSlide = 0;
+  let autoSlideTimer = null;
 
-      if (typeof NexGenStore !== 'undefined') {
-        NexGenStore.addLead({
-          name,
-          phone,
-          program: `Brochure: ${course}`,
-          message: 'Downloaded syllabus brochure',
-          type: 'Brochure'
-        });
-      }
-
-      const waText = encodeURIComponent(
-        `*Brochure Request - NexGen C2C Skills*\n\n` +
-        `👤 *Name:* ${name}\n` +
-        `📞 *Phone:* ${phone}\n` +
-        `📄 *Requested Syllabus:* ${course}`
-      );
-
-      window.open(`https://wa.me/917078437914?text=${waText}`, '_blank');
-      closeModal('brochure-modal');
-      alert(`Thank you ${name}! The syllabus details have been sent to your WhatsApp.`);
+  function updateSlider(index) {
+    if (!sliderTrack || slides.length === 0) return;
+    currentSlide = (index + slides.length) % slides.length;
+    sliderTrack.style.transform = `translateX(-${(currentSlide * 100) / slides.length}%)`;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
     });
   }
+
+  function nextSlide() {
+    updateSlider(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    updateSlider(currentSlide - 1);
+  }
+
+  if (sliderTrack && slides.length > 0) {
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); resetAutoSlide(); });
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); resetAutoSlide(); });
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const slideIdx = parseInt(dot.getAttribute('data-slide'), 10);
+        updateSlider(slideIdx);
+        resetAutoSlide();
+      });
+    });
+
+    function startAutoSlide() {
+      autoSlideTimer = setInterval(nextSlide, 6000);
+    }
+    function resetAutoSlide() {
+      if (autoSlideTimer) clearInterval(autoSlideTimer);
+      startAutoSlide();
+    }
+    startAutoSlide();
+
+    const sliderContainer = document.querySelector('.hero-slider-section');
+    if (sliderContainer) {
+      sliderContainer.addEventListener('mouseenter', () => { if (autoSlideTimer) clearInterval(autoSlideTimer); });
+      sliderContainer.addEventListener('mouseleave', () => { resetAutoSlide(); });
+    }
+  }
+
+  // 7. Career Path Finder Selector
+  window.selectCareerGoal = function(goalKey) {
+    document.querySelectorAll('.career-path-card').forEach(card => {
+      card.classList.toggle('active', card.getAttribute('data-goal') === goalKey);
+    });
+    document.querySelectorAll('.career-result-panel').forEach(panel => {
+      panel.style.display = panel.getAttribute('data-panel') === goalKey ? 'block' : 'none';
+    });
+  };
 });
+

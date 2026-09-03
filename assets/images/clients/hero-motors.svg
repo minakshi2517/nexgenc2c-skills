@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 38" height="38" width="150" fill="none">
+  <!-- Hero Red/Black Geometric Emblem -->
+  <g transform="translate(4, 5)">
+    <path d="M0 0 L14 13 L0 26 Z" fill="#D40404"/>
+    <path d="M15 0 L26 0 L15 12 Z" fill="#040F49"/>
+    <path d="M15 14 L26 26 L15 26 Z" fill="#D40404"/>
+  </g>
+  <!-- Hero Text -->
+  <text x="38" y="24" font-family="'Outfit', 'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" fill="#040F49" letter-spacing="-0.03em">Hero</text>
+  <text x="39" y="32" font-family="'Inter', sans-serif" font-weight="700" font-size="6.5" fill="#64748B" letter-spacing="0.16em">MOTORS</text>
+</svg>
