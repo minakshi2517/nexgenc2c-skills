@@ -41,63 +41,36 @@ const NexGenStore = {
     courses: [
       {
         id: "crs-1",
-        title: "01 | Artificial Intelligence Foundation Track",
+        title: "Artificial Intelligence",
         category: "Artificial Intelligence",
-        target: "Students & Beginners",
-        duration: "6 Weeks (Live + Projects)",
+        target: "Students, Professionals & Leaders",
+        duration: "6-8 Weeks (Live + Hands-on Projects)",
         mode: "Online Live + Lab Access",
         icon: "fa-robot",
-        description: "Understand Generative AI, master 20+ everyday AI tools (ChatGPT, Claude, Midjourney), prompt engineering, and academic project workflows."
+        link: "ai-training.html",
+        description: "Master 20+ everyday AI tools, prompt engineering, workflow automation, autonomous AI agents, and real-world practical AI implementation."
       },
       {
         id: "crs-2",
-        title: "02 | AI Executive & Professional Accelerator",
-        category: "Artificial Intelligence",
-        target: "Working Professionals",
-        duration: "8 Weeks (Weekend Batches)",
-        mode: "Hybrid / Live",
-        icon: "fa-bolt",
-        description: "Automate daily office tasks, build automated Excel/BI reports, create multi-step Zapier/Make pipelines, and scale business output."
+        title: "Operational Excellence",
+        category: "Operational Excellence",
+        target: "Engineers, Operations Teams & Graduates",
+        duration: "6 Weeks Practical",
+        mode: "Interactive Case Studies & Real Projects",
+        icon: "fa-chart-line",
+        link: "c2c-skills.html",
+        description: "Shop-floor Lean Manufacturing, 5S, Kaizen, VSM, RCA, 8D problem solving, Six Sigma (DMAIC), and OEE optimization for world-class quality."
       },
       {
         id: "crs-3",
-        title: "03 | Campus to Corporate (C2C) Master Leadership",
-        category: "Campus to Corporate",
-        target: "Final Year Students & Freshers",
-        duration: "4 Weeks Intensive",
-        mode: "On-Campus / Live Online",
-        icon: "fa-users-cog",
-        description: "4-Quadrant matrix: AI+Lead, AI+Work, AI+Learn, AI+Grow. Inspired by The 7 Habits of Highly Effective People and Atomic Habits."
-      },
-      {
-        id: "crs-4",
-        title: "04 | Operational Excellence (Lean, Quality & 8D)",
-        category: "Industrial Oriented",
-        target: "Engineers & Operations Teams",
-        duration: "6 Weeks Practical",
-        mode: "Interactive Case Studies",
-        icon: "fa-chart-line",
-        description: "Shop-floor Lean Manufacturing, 5S, TPM, Root Cause Analysis (RCA), and 8D problem solving methodology for world-class quality."
-      },
-      {
-        id: "crs-5",
-        title: "05 | Industrial Automation & PLC Programming",
-        category: "Industrial Oriented",
-        target: "Electrical / Mechanical Engineers",
-        duration: "8 Weeks Hands-on",
-        mode: "Simulation Lab + Hardware",
+        title: "Industrial Automation",
+        category: "Industrial Automation",
+        target: "Engineers & Automation Professionals",
+        duration: "8 Weeks Hands-on Lab",
+        mode: "Hardware Lab + Simulation",
         icon: "fa-cogs",
-        description: "Complete PLC programming (Siemens, Allen Bradley), HMI/SCADA designing, industrial sensors, hydraulics, and closed-loop control."
-      },
-      {
-        id: "crs-6",
-        title: "06 | Industrial Robotics & Servo Motion Control",
-        category: "Industrial Oriented",
-        target: "Automation Engineers",
-        duration: "8 Weeks Advanced",
-        mode: "Practical Robotics Simulation",
-        icon: "fa-microchip",
-        description: "Multi-axis kinematics, servo drive calibration, VFD speed control, robot kinematics, and Industry 4.0 smart factory integration."
+        link: "industrial-training.html",
+        description: "Hands-on Industry 4.0, PLC programming (Siemens, Allen Bradley), SCADA/HMI design, IIoT, robotics motion control, and digital twins."
       }
     ],
     gallery: [

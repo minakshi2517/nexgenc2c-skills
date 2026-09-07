@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexGen C2C Skills | Campus to Corporate | Building Future-Ready Talent</title>
-  <meta name="description" content="NexGen C2C Skills - India’s premier institution for building future-ready capabilities in Artificial Intelligence, Operational Excellence, and Industrial Tech. Mentorship by IIT & IIM alumni.">
-  <meta name="keywords" content="NexGen C2C Skills, Artificial Intelligence Training, Campus to Corporate, Operational Excellence, Lean Six Sigma, Industrial Tech, Industry 4.0">
-  <meta property="og:title" content="NexGen C2C Skills | Building Future-Ready Talent">
-  <meta property="og:description" content="AI Training, Campus to Corporate, Operational Excellence, and Industrial Tech practical learning.">
+  <meta name="description" content="NexGen C2C Skills - India’s premier institution for building future-ready capabilities in Artificial Intelligence, Operational Excellence, and Industrial Automation. Mentorship by IIT & IIM alumni.">
+  <meta name="keywords" content="NexGen C2C Skills, Artificial Intelligence Training, Campus to Corporate, Operational Excellence, Lean Six Sigma, Industrial Automation, Industry 4.0">
+  <meta property="og:title" content="NexGen C2C Skills | AI, Operational Excellence & Industrial Automation">
+  <meta property="og:description" content="AI Training, Campus to Corporate, Operational Excellence, and Industrial Automation practical learning.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/logo.png">
 
@@ -18,8 +18,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/style.css?v=2.2">
-  <link rel="stylesheet" href="assets/css/animations.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/animations.css?v=2.5">
 </head>
 <body>
 
@@ -41,30 +41,27 @@
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
         <img src="assets/images/logo.png" alt="NexGen C2C Skills Official Logo" width="180" height="52">
-      </a>
-
-      <!-- Desktop Navigation Menu -->
+      </a>      <!-- Desktop Navigation Menu -->
       <ul class="nav-menu">
-        <li><a href="career-path.html" class="nav-link">Choose Your Career Path</a></li>
         <li><a href="about.html" class="nav-link">About Us</a></li>
         
-        <!-- Programs Dropdown -->
+        <!-- Our Training Dropdown -->
         <li class="nav-dropdown">
           <a href="programs.html" class="nav-link">
-            <span>Our Programs</span> <i class="fas fa-chevron-down" style="font-size:0.75rem;"></i>
+            <span>Our Training</span> <i class="fas fa-chevron-down" style="font-size:0.75rem;"></i>
           </a>
           <ul class="dropdown-menu">
             <li class="dropdown-item">
               <a href="programs.html">
                 <i class="fas fa-th-large"></i>
                 <div>
-                  <strong>All Programs Overview</strong>
+                  <strong>All Training Overview</strong>
                   <small style="display:block; color:var(--text-body-dark); font-size:0.75rem;">Master Catalog &amp; 3 Verticals</small>
                 </div>
               </a>
             </li>
             <li class="dropdown-item">
-              <a href="programs.html#ai-section">
+              <a href="ai-training.html">
                 <i class="fas fa-robot"></i>
                 <div>
                   <strong>Artificial Intelligence</strong>
@@ -73,7 +70,7 @@
               </a>
             </li>
             <li class="dropdown-item">
-              <a href="programs.html#op-section">
+              <a href="c2c-skills.html">
                 <i class="fas fa-chart-line"></i>
                 <div>
                   <strong>Operational Excellence</strong>
@@ -82,10 +79,10 @@
               </a>
             </li>
             <li class="dropdown-item">
-              <a href="programs.html#tech-section">
+              <a href="industrial-training.html">
                 <i class="fas fa-cogs"></i>
                 <div>
-                  <strong>Industrial Tech</strong>
+                  <strong>Industrial Automation</strong>
                   <small style="display:block; color:var(--text-body-dark); font-size:0.75rem;">Industry 4.0, PLC &amp; Robotics</small>
                 </div>
               </a>
@@ -93,9 +90,9 @@
           </ul>
         </li>
 
+        <li><a href="career-path.html" class="nav-link">Choose Your Career Path</a></li>
         <li><a href="events.html" class="nav-link">Upcoming Events</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery &amp; Blog</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
 
@@ -115,50 +112,43 @@
   </header>
 
   <!-- ==========================================================================
-       3 MOVING ANIMATED PAGES (LEFT-TO-RIGHT SLIDER ON LANDING)
+       5 MOVING ANIMATED SLIDES (HERO SLIDER)
        Clicks on moving pages land on "Our Programs" (programs.html)
        ========================================================================== -->
   <section class="hero-slider-section">
+    <!-- Side Slider Navigation Arrows -->
+    <button id="slider-prev" class="slider-side-nav prev" aria-label="Previous Slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button id="slider-next" class="slider-side-nav next" aria-label="Next Slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
     <div class="slider-wrapper">
       <div id="moving-slider-track" class="slider-track">
         
-        <!-- PAGE 1: NexGen C2C Skills -->
+        <!-- SLIDE 1: Same Potential. Bigger Possibilities. -->
         <div class="moving-slide slide-1" onclick="window.location.href='programs.html'">
           <div class="container">
-            <div class="slide-grid">
-              <div class="slide-content">
-                <h1 class="slide-title">
-                  <img class="nexgen-inline-img" src="assets/images/nexgen-wordmark.png" alt="NexGen"> C2C Skills
-                </h1>
-                <p class="slide-desc">
-                  India’s premier institution for building future-ready capabilities.
-                </p>
-                <ul class="slide-feature-list">
-                  <li><i class="fas fa-check-circle"></i> Guidance and mentorship from distinguished IIT &amp; IIM alumni</li>
-                  <li><i class="fas fa-check-circle"></i> Real-world project simulations &amp; hands-on technical labs</li>
-                  <li><i class="fas fa-check-circle"></i> Industry-aligned capabilities across AI, Operations &amp; Industrial Tech</li>
-                </ul>
-                <div class="slide-cta-group">
-                  <a href="programs.html" class="btn btn-lg btn-primary" onclick="event.stopPropagation();">
-                    <span>Explore Our Programs</span> <i class="fas fa-arrow-right"></i>
-                  </a>
-                  <a href="career-path.html" class="btn btn-lg btn-outline-white" onclick="event.stopPropagation();">
-                    <i class="fas fa-compass"></i> <span>Choose Career Path</span>
-                  </a>
-                </div>
-              </div>
-              <div class="slide-visual">
-                <div class="slide-visual-holder">
-                  <img src="assets/images/slide1_capabilities.jpg" alt="NexGen C2C Skills Students Collaborating" class="slide-img">
-                  <div class="slide-img-overlay">
-                    <span style="font-weight:700; font-size:0.95rem;">Future-Ready Talent Hub</span>
-                    <span class="slide-img-badge">IIT &amp; IIM Pedagogy</span>
-                  </div>
-                </div>
+            <div class="slide-content-center">
+              <span class="pill-badge gold"><i class="fas fa-graduation-cap"></i> SAME POTENTIAL. BIGGER POSSIBILITIES.</span>
+              <h1 class="slide-title">
+                Building <span style="color: #FBBF24;">Future-Ready</span> Engineering Talent
+              </h1>
+              <p class="slide-desc">
+                Transforming potential into high-impact corporate careers with hands-on technical fluency and executive mentoring from distinguished IIT &amp; IIM alumni.
+              </p>
+              <div class="slide-cta-group">
+                <a href="programs.html" class="btn btn-lg btn-primary" onclick="event.stopPropagation();">
+                  <span>Explore Our Programs</span> <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="career-path.html" class="btn btn-lg btn-outline-white" onclick="event.stopPropagation();">
+                  <i class="fas fa-compass"></i> <span>Choose Career Path</span>
+                </a>
               </div>
             </div>
 
-            <!-- Trusted by moving marquee in bottom of Page 1 -->
+            <!-- Trusted by moving marquee -->
             <div class="slide-trusted-strip">
               <div class="trusted-label">
                 <i class="fas fa-shield-alt"></i> <span>Trusted by</span>
@@ -169,66 +159,37 @@
                   <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/hero-motors.svg" alt="Hero Motors Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/tata-autocomp.svg" alt="Tata AutoComp Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/spark-minda.svg" alt="Spark Minda Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/motherson.svg" alt="Motherson Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/lumax.svg" alt="Lumax Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/subros.svg" alt="Subros Official Logo"></span>
-                  <!-- Repeated for seamless infinite loop -->
                   <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/hero-motors.svg" alt="Hero Motors Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/tata-autocomp.svg" alt="Tata AutoComp Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/spark-minda.svg" alt="Spark Minda Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/motherson.svg" alt="Motherson Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/lumax.svg" alt="Lumax Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/subros.svg" alt="Subros Official Logo"></span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- PAGE 2: From Campus to Corporate (C2C) -->
+        <!-- SLIDE 2: Future-Ready Capabilities -->
         <div class="moving-slide slide-2" onclick="window.location.href='programs.html'">
           <div class="container">
-            <div class="slide-grid">
-              <div class="slide-content">
-                <h1 class="slide-title">
-                  From Campus to Corporate (C2C)
-                </h1>
-                <p class="slide-desc">
-                  Building future-ready global talent for tomorrow’s workforce.
-                </p>
-                <ul class="slide-feature-list">
-                  <li><i class="fas fa-check-circle"></i> Bridge the critical divide between theoretical education and high performance</li>
-                  <li><i class="fas fa-check-circle"></i> Executive leadership, 7 Habits &amp; workplace communication mastery</li>
-                  <li><i class="fas fa-check-circle"></i> 94% placement jump with industry case studies &amp; mock interviews</li>
-                </ul>
-                <div class="slide-cta-group">
-                  <a href="programs.html" class="btn btn-lg btn-primary" onclick="event.stopPropagation();">
-                    <span>Explore Our Programs</span> <i class="fas fa-arrow-right"></i>
-                  </a>
-                  <a href="book-demo.html" class="btn btn-lg btn-outline-white" onclick="event.stopPropagation();">
-                    <i class="fas fa-calendar-check"></i> <span>Book Free Demo Class</span>
-                  </a>
-                </div>
-              </div>
-              <div class="slide-visual">
-                <div class="slide-visual-holder">
-                  <img src="assets/images/slide2_workforce.jpg" alt="Indian Corporate Workforce and Young Leaders" class="slide-img">
-                  <div class="slide-img-overlay">
-                    <span style="font-weight:700; font-size:0.95rem;">Corporate Leadership Ready</span>
-                    <span class="slide-img-badge">Placement Fast-Track</span>
-                  </div>
-                </div>
+            <div class="slide-content-center">
+              <span class="pill-badge gold"><i class="fas fa-robot"></i> FUTURE-READY CAPABILITIES</span>
+              <h1 class="slide-title">
+                Empowering Global Talent with <span style="color: #38BDF8;">AI &amp; Tech</span>
+              </h1>
+              <p class="slide-desc">
+                Master 20+ Generative AI tools, prompt engineering, automated workflows, and executive leadership frameworks for 10x career growth.
+              </p>
+              <div class="slide-cta-group">
+                <a href="ai-training.html" class="btn btn-lg btn-primary" onclick="event.stopPropagation();">
+                  <span>Explore AI Programs</span> <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="book-demo.html" class="btn btn-lg btn-outline-white" onclick="event.stopPropagation();">
+                  <i class="fas fa-calendar-check"></i> <span>Book Free Demo</span>
+                </a>
               </div>
             </div>
 
-            <!-- Trusted by moving marquee in bottom of Page 2 -->
             <div class="slide-trusted-strip">
               <div class="trusted-label">
                 <i class="fas fa-shield-alt"></i> <span>Trusted by</span>
@@ -239,66 +200,37 @@
                   <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/hero-motors.svg" alt="Hero Motors Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/tata-autocomp.svg" alt="Tata AutoComp Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/spark-minda.svg" alt="Spark Minda Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/motherson.svg" alt="Motherson Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/lumax.svg" alt="Lumax Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/subros.svg" alt="Subros Official Logo"></span>
-                  <!-- Repeated for seamless infinite loop -->
                   <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/hero-motors.svg" alt="Hero Motors Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/tata-autocomp.svg" alt="Tata AutoComp Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/spark-minda.svg" alt="Spark Minda Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/motherson.svg" alt="Motherson Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/lumax.svg" alt="Lumax Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/subros.svg" alt="Subros Official Logo"></span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- PAGE 3: Artificial Intelligence | Operational Excellence | Industrial Tech -->
+        <!-- SLIDE 3: Campus to Corporate Leadership -->
         <div class="moving-slide slide-3" onclick="window.location.href='programs.html'">
           <div class="container">
-            <div class="slide-grid">
-              <div class="slide-content">
-                <h1 class="slide-title" style="font-size:clamp(1.9rem, 3.4vw, 2.9rem);">
-                  Artificial Intelligence | Operational Excellence | Industrial Tech
-                </h1>
-                <p class="slide-desc">
-                  Master future-ready skills with guidance from IIT &amp; IIM alumni.
-                </p>
-                <ul class="slide-feature-list">
-                  <li><i class="fas fa-check-circle"></i> <strong>Why AI is critical:</strong> Automate repetitive workflows, build AI agents, and 10x output</li>
-                  <li><i class="fas fa-check-circle"></i> <strong>Operational Excellence:</strong> Lean Six Sigma, 8D problem solving, OEE optimization</li>
-                  <li><i class="fas fa-check-circle"></i> <strong>Industrial Tech:</strong> Industry 4.0, PLC, SCADA, Robotics &amp; Digital Twin</li>
-                </ul>
-                <div class="slide-cta-group">
-                  <a href="programs.html" class="btn btn-lg btn-primary" onclick="event.stopPropagation();">
-                    <span>Explore Our Programs</span> <i class="fas fa-arrow-right"></i>
-                  </a>
-                  <a href="career-path.html" class="btn btn-lg btn-outline-white" onclick="event.stopPropagation();">
-                    <i class="fas fa-road"></i> <span>Choose Career Path</span>
-                  </a>
-                </div>
-              </div>
-              <div class="slide-visual">
-                <div class="slide-visual-holder">
-                  <img src="assets/images/slide3_tech_ai.jpg" alt="IIT and IIM Mentors in Industrial AI and Robotics Lab" class="slide-img">
-                  <div class="slide-img-overlay">
-                    <span style="font-weight:700; font-size:0.95rem;">Smart Lab &amp; Mentorship</span>
-                    <span class="slide-img-badge">Industry 4.0 Labs</span>
-                  </div>
-                </div>
+            <div class="slide-content-center">
+              <span class="pill-badge gold"><i class="fas fa-user-tie"></i> EXECUTIVE EXCELLENCE</span>
+              <h1 class="slide-title">
+                From <span style="color: #FBBF24;">Campus to Corporate</span> (C2C)
+              </h1>
+              <p class="slide-desc">
+                Executive leadership, Stephen Covey's 7 Habits mastery, and workplace communication with industry case studies, mock interviews, and 94% placement jump.
+              </p>
+              <div class="slide-cta-group">
+                <a href="c2c-skills.html" class="btn btn-lg btn-primary" onclick="event.stopPropagation();">
+                  <span>Explore C2C Programs</span> <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="career-path.html" class="btn btn-lg btn-outline-white" onclick="event.stopPropagation();">
+                  <i class="fas fa-road"></i> <span>Choose Career Path</span>
+                </a>
               </div>
             </div>
 
-            <!-- Trusted by moving marquee in bottom of Page 3 -->
             <div class="slide-trusted-strip">
               <div class="trusted-label">
                 <i class="fas fa-shield-alt"></i> <span>Trusted by</span>
@@ -309,23 +241,103 @@
                   <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/hero-motors.svg" alt="Hero Motors Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/tata-autocomp.svg" alt="Tata AutoComp Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/spark-minda.svg" alt="Spark Minda Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/motherson.svg" alt="Motherson Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/lumax.svg" alt="Lumax Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/subros.svg" alt="Subros Official Logo"></span>
-                  <!-- Repeated for seamless infinite loop -->
                   <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
                   <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/hero-motors.svg" alt="Hero Motors Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/tata-autocomp.svg" alt="Tata AutoComp Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/spark-minda.svg" alt="Spark Minda Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/motherson.svg" alt="Motherson Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/lumax.svg" alt="Lumax Official Logo"></span>
-                  <span class="client-chip"><img src="assets/images/clients/subros.svg" alt="Subros Official Logo"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4: Smart Machines & Automation for a Smarter Tomorrow -->
+        <div class="moving-slide slide-4" onclick="window.location.href='programs.html'">
+          <div class="container">
+            <div class="slide-content-center">
+              <span class="pill-badge gold"><i class="fas fa-cogs"></i> SMART MACHINES • SKILLED PEOPLE</span>
+              <h1 class="slide-title">
+                Automation for a <span style="color: #4ADE80;">Smarter Tomorrow</span>
+              </h1>
+              <p class="slide-desc">
+                Hands-on shop-floor training in Industry 4.0, PLC programming, SCADA systems, Robotics motion control, and digital twins.
+              </p>
+              <div class="slide-cta-group">
+                <a href="industrial-training.html" class="btn btn-lg btn-primary" onclick="event.stopPropagation();">
+                  <span>Industrial Automation</span> <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="book-demo.html" class="btn btn-lg btn-outline-white" onclick="event.stopPropagation();">
+                  <i class="fas fa-microchip"></i> <span>Book Free Lab Demo</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="slide-trusted-strip">
+              <div class="trusted-label">
+                <i class="fas fa-shield-alt"></i> <span>Trusted by</span>
+              </div>
+              <div class="trusted-marquee-container">
+                <div class="trusted-marquee-track">
+                  <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 5: Seasonal Training Programs -->
+        <div class="moving-slide slide-5" onclick="window.location.href='programs.html'">
+          <div class="container">
+            <!-- Content removed to showcase pure image banner -->
+            <div style="min-height: 380px;"></div>
+
+            <div class="slide-trusted-strip">
+              <div class="trusted-label">
+                <i class="fas fa-shield-alt"></i> <span>Trusted by</span>
+              </div>
+              <div class="trusted-marquee-container">
+                <div class="trusted-marquee-track">
+                  <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 6: Industrial Training for Freshers & Working Professionals -->
+        <div class="moving-slide slide-6" onclick="window.location.href='industrial-training.html'">
+          <div class="container">
+            <!-- Content removed to showcase pure image banner -->
+            <div style="min-height: 380px;"></div>
+
+            <div class="slide-trusted-strip">
+              <div class="trusted-label">
+                <i class="fas fa-shield-alt"></i> <span>Trusted by</span>
+              </div>
+              <div class="trusted-marquee-container">
+                <div class="trusted-marquee-track">
+                  <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-motors.svg" alt="Terra Motors Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/terra-charge.svg" alt="Terra Charge Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/evstar.svg" alt="Evstar Official Logo"></span>
+                  <span class="client-chip"><img src="assets/images/clients/cityplug.svg" alt="CityPlug Official Logo"></span>
                 </div>
               </div>
             </div>
@@ -337,18 +349,17 @@
 
     <!-- Slider Control Bar -->
     <div class="slider-controls-bar">
-      <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
         <div class="slider-dots">
           <button class="dot-btn active" data-slide="0" aria-label="Go to slide 1"></button>
           <button class="dot-btn" data-slide="1" aria-label="Go to slide 2"></button>
           <button class="dot-btn" data-slide="2" aria-label="Go to slide 3"></button>
+          <button class="dot-btn" data-slide="3" aria-label="Go to slide 4"></button>
+          <button class="dot-btn" data-slide="4" aria-label="Go to slide 5"></button>
+          <button class="dot-btn" data-slide="5" aria-label="Go to slide 6"></button>
         </div>
-        <div style="color:#FFFFFF; font-size:0.85rem; font-weight:600;">
+        <div style="color:var(--text-body-dark); font-size:0.85rem; font-weight:600;">
           <span>Click any slide to explore <strong>Our Programs</strong> &rarr;</span>
-        </div>
-        <div class="slider-arrows">
-          <button id="slider-prev" class="slider-arrow-btn" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
-          <button id="slider-next" class="slider-arrow-btn" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>
     </div>
@@ -383,7 +394,7 @@
             </ul>
           </div>
           <div style="margin-top:1.5rem;">
-            <a href="programs.html#ai-section" class="btn btn-navy" style="width:100%;">View AI Programs &rarr;</a>
+            <a href="ai-training.html" class="btn btn-navy" style="width:100%;">View AI Programs &rarr;</a>
           </div>
         </div>
 
@@ -404,7 +415,7 @@
             </ul>
           </div>
           <div style="margin-top:1.5rem;">
-            <a href="programs.html#op-section" class="btn btn-primary" style="width:100%;">View Operations Tracks &rarr;</a>
+            <a href="c2c-skills.html" class="btn btn-primary" style="width:100%;">View Operations Tracks &rarr;</a>
           </div>
         </div>
 
@@ -413,7 +424,7 @@
           <div>
             <div class="vertical-icon-box tech-icon"><i class="fas fa-cogs"></i></div>
             <span class="pill-badge forest-theme" style="font-size:0.75rem; margin-bottom:0.6rem;">VERTICAL 03</span>
-            <h3 style="font-size:1.4rem; color:var(--midnight-indigo); margin-bottom:0.4rem;">Industrial Tech</h3>
+            <h3 style="font-size:1.4rem; color:var(--midnight-indigo); margin-bottom:0.4rem;">Industrial Automation</h3>
             <p style="font-size:0.92rem; font-weight:700; color:var(--logo-red); margin-bottom:0.8rem;">Build hands-on skills for the future of industry.</p>
             <p style="font-size:0.88rem; color:var(--text-body-dark); line-height:1.6; margin-bottom:1.2rem;">
               Get practical exposure to Industry 4.0, automation, IIoT, robotics, digital twins, and smart manufacturing through hands-on learning.
@@ -425,7 +436,7 @@
             </ul>
           </div>
           <div style="margin-top:1.5rem;">
-            <a href="programs.html#tech-section" class="btn btn-forest" style="width:100%;">View Industrial Tracks &rarr;</a>
+            <a href="industrial-training.html" class="btn btn-forest" style="width:100%;">View Automation Tracks &rarr;</a>
           </div>
         </div>
       </div>
@@ -439,7 +450,7 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="pill-badge white-theme">FOUNDATIONAL PILLARS</span>
-        <h2 class="section-title text-white">The 4 <img class="nexgen-inline-img" src="assets/images/nexgen-wordmark-light.png" alt="NexGen"> Foundational Pillars</h2>
+        <h2 class="section-title text-white">The 4 <img class="nexgen-wordmark-img" src="assets/images/nexgen-wordmark-light.png" alt="NexGen C2C Skills"> Foundational Pillars</h2>
         <p class="section-desc text-white">Built on real industry expertise, practical workflows, and cutting-edge technologies.</p>
       </div>
 
@@ -470,6 +481,81 @@
           <h3 class="pillar-title">4. Customized</h3>
           <p class="pillar-tagline">Designed around your goals.</p>
           <p class="pillar-sub">Tailored learning programs aligned with industry needs and enterprise upskilling priorities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DOMAIN EXPERTISE SECTION (3x2 GRID MATCHING REFERENCE IMAGE)
+       ========================================================================== -->
+  <section style="padding: 5rem 0; background: var(--beige-warm);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="pill-badge midnight"><i class="fas fa-layer-group"></i> OUR CAPABILITIES</span>
+        <h2 class="section-title">Domain Expertise</h2>
+        <p class="section-desc">Comprehensive industry-aligned training programs, hands-on lab workshops, internships, and project bootcamps.</p>
+      </div>
+
+      <div class="domain-expertise-grid reveal">
+        <!-- Card 1 -->
+        <div class="domain-card" onclick="window.location.href='programs.html'">
+          <div class="domain-card-img-wrap">
+            <img src="assets/images/domain/domain_industrial_seminar.jpg" alt="Industrial Awareness Seminar">
+          </div>
+          <div class="domain-card-title-bar">
+            Industrial Awareness Seminar
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="domain-card" onclick="window.location.href='programs.html'">
+          <div class="domain-card-img-wrap">
+            <img src="assets/images/domain/domain_industry_training.jpg" alt="Industry Aligned Training">
+          </div>
+          <div class="domain-card-title-bar">
+            Industry Aligned Training
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="domain-card" onclick="window.location.href='industrial-training.html'">
+          <div class="domain-card-img-wrap">
+            <img src="assets/images/domain/domain_hands_on_workshops.jpg" alt="Hands On Practical Workshops">
+          </div>
+          <div class="domain-card-title-bar">
+            Hands On Practical Workshops
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="domain-card" onclick="window.location.href='career-path.html'">
+          <div class="domain-card-img-wrap">
+            <img src="assets/images/domain/domain_internship.jpg" alt="Summer/Winter Internship">
+          </div>
+          <div class="domain-card-title-bar">
+            Summer/Winter Internship
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="domain-card" onclick="window.location.href='programs.html'">
+          <div class="domain-card-img-wrap">
+            <img src="assets/images/domain/domain_college_projects.jpg" alt="College Projects">
+          </div>
+          <div class="domain-card-title-bar">
+            College Projects
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="domain-card" onclick="window.location.href='c2c-skills.html'">
+          <div class="domain-card-img-wrap">
+            <img src="assets/images/domain/domain_softskills_pdp.jpg" alt="Softskills & PDP Program">
+          </div>
+          <div class="domain-card-title-bar">
+            Softskills &amp; PDP Program
+          </div>
         </div>
       </div>
     </div>
@@ -543,12 +629,109 @@
             <h3 class="stage-title">Enterprises</h3>
             <div class="stage-tagline">Build capability. Improve performance. Stay future-ready.</div>
             <p class="stage-desc">
-              Upskill teams in AI, Operational Excellence, and Industrial Technology to improve productivity, solve business challenges, automate workflows, and drive continuous improvement.
+              Upskill teams in AI, Operational Excellence, and Industrial Automation to improve productivity, solve business challenges, automate workflows, and drive continuous improvement.
             </p>
           </div>
           <div style="margin-top:1.5rem;">
             <a href="contact.html" class="btn btn-sm btn-primary" style="width:100%;">Corporate Upskilling</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       NEXGEN EVENTS & MASTERCLASSES (SIDE-SLIDING CAROUSEL)
+       ========================================================================== -->
+  <section class="events-slider-section">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom: 1.5rem;">
+        <span class="pill-badge white-theme"><i class="fas fa-calendar-alt"></i> LIVE MASTERCLASSES</span>
+        <h2 class="section-title text-white">Upcoming NexGen Events</h2>
+        <p class="section-desc text-white">Join free live webinars, campus bootcamps, and industrial tech lab masterclasses.</p>
+      </div>
+
+      <div class="events-carousel-wrap reveal">
+        <div id="home-events-track" class="events-carousel-track">
+          <!-- Event Card 1 -->
+          <div class="events-slide-card">
+            <div>
+              <span class="events-card-badge">Free Live Session</span>
+              <h3 class="events-card-title">Generative AI Masterclass: Prompting to Workflow Automation</h3>
+              <div class="events-card-meta">
+                <span><i class="far fa-calendar-alt"></i> August 30, 2026</span>
+                <span><i class="far fa-clock"></i> 06:00 PM - 07:30 PM IST</span>
+                <span><i class="fas fa-user-tie"></i> Dr. Rajesh Verma (AI Principal)</span>
+              </div>
+            </div>
+            <a href="book-demo.html" class="btn btn-sm btn-primary" style="width: 100%;">Register Free &rarr;</a>
+          </div>
+
+          <!-- Event Card 2 -->
+          <div class="events-slide-card">
+            <div>
+              <span class="events-card-badge">Certified Workshop</span>
+              <h3 class="events-card-title">Campus to Corporate 4-Quadrant Leadership Boot Camp</h3>
+              <div class="events-card-meta">
+                <span><i class="far fa-calendar-alt"></i> September 05, 2026</span>
+                <span><i class="far fa-clock"></i> 10:00 AM - 01:00 PM IST</span>
+                <span><i class="fas fa-user-tie"></i> Ananya Deshmukh (Ex-HR Lead)</span>
+              </div>
+            </div>
+            <a href="book-demo.html" class="btn btn-sm btn-primary" style="width: 100%;">Register Free &rarr;</a>
+          </div>
+
+          <!-- Event Card 3 -->
+          <div class="events-slide-card">
+            <div>
+              <span class="events-card-badge">Hands-On Lab</span>
+              <h3 class="events-card-title">Industrial Automation 4.0: PLC &amp; SCADA Hardware Simulation</h3>
+              <div class="events-card-meta">
+                <span><i class="far fa-calendar-alt"></i> September 12, 2026</span>
+                <span><i class="far fa-clock"></i> 02:00 PM - 04:30 PM IST</span>
+                <span><i class="fas fa-user-tie"></i> Er. Amit Saini (Automation Lead)</span>
+              </div>
+            </div>
+            <a href="book-demo.html" class="btn btn-sm btn-primary" style="width: 100%;">Register Free &rarr;</a>
+          </div>
+
+          <!-- Event Card 4 -->
+          <div class="events-slide-card">
+            <div>
+              <span class="events-card-badge">Masterclass</span>
+              <h3 class="events-card-title">Lean Six Sigma DMAIC &amp; 8D Problem Solving in Smart Factories</h3>
+              <div class="events-card-meta">
+                <span><i class="far fa-calendar-alt"></i> September 20, 2026</span>
+                <span><i class="far fa-clock"></i> 11:00 AM - 01:30 PM IST</span>
+                <span><i class="fas fa-user-tie"></i> Er. Vikas Khanna (Quality Director)</span>
+              </div>
+            </div>
+            <a href="book-demo.html" class="btn btn-sm btn-primary" style="width: 100%;">Register Free &rarr;</a>
+          </div>
+
+          <!-- Event Card 5 -->
+          <div class="events-slide-card">
+            <div>
+              <span class="events-card-badge">Faculty Bootcamp</span>
+              <h3 class="events-card-title">Train the Trainer (TTT): AI in Higher Education Pedagogy</h3>
+              <div class="events-card-meta">
+                <span><i class="far fa-calendar-alt"></i> September 28, 2026</span>
+                <span><i class="far fa-clock"></i> 04:00 PM - 06:30 PM IST</span>
+                <span><i class="fas fa-user-tie"></i> Prof. Dr. Sanjay Nair</span>
+              </div>
+            </div>
+            <a href="book-demo.html" class="btn btn-sm btn-primary" style="width: 100%;">Register Free &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="events-slider-controls">
+          <button id="events-prev-btn" class="events-nav-btn" aria-label="Previous Event">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button id="events-next-btn" class="events-nav-btn" aria-label="Next Event">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -598,10 +781,9 @@
               <div style="margin-bottom:1.4rem;">
                 <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:0.3rem;">Program of Interest</label>
                 <select id="demo-program" style="width:100%; padding:0.75rem; border:1px solid var(--border-light-gray); border-radius:var(--radius-sm); font-size:0.9rem; background:#FFFFFF;">
-                  <option value="Artificial Intelligence Training">Artificial Intelligence Training</option>
+                  <option value="Artificial Intelligence">Artificial Intelligence</option>
                   <option value="Operational Excellence">Operational Excellence</option>
-                  <option value="Industrial Tech & Automation">Industrial Tech &amp; Automation</option>
-                  <option value="Campus to Corporate Leadership">Campus to Corporate Leadership</option>
+                  <option value="Industrial Automation">Industrial Automation</option>
                 </select>
               </div>
               <button type="submit" class="btn btn-primary" style="width:100%; padding:0.9rem;">Confirm Demo Reservation &rarr;</button>
@@ -620,7 +802,7 @@
       <div class="footer-grid">
         <div>
           <div class="brand-logo" style="margin-bottom: 1.2rem;">
-            <img src="assets/images/logo.png" alt="NexGen C2C Skills Logo" width="170" height="48">
+            <img src="assets/images/logo-footer.png" alt="NexGen C2C Skills Logo" width="170" height="48">
           </div>
           <p style="color:#FFFFFF; font-size:0.9rem; line-height:1.7; margin-bottom:1.5rem;">
             India’s premier institution for building future-ready capabilities. Guidance from IIT &amp; IIM alumni.
@@ -630,29 +812,31 @@
           </p>
         </div>
         <div>
-          <h4 class="footer-title">Quick Links</h4>
+                    <h4 class="footer-title">Quick Links</h4>
           <ul class="footer-links">
-            <li><a href="career-path.html">Choose Your Career Path</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="programs.html">Our Training</a></li>
+            <li><a href="career-path.html">Choose Your Career Path</a></li>
             <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="gallery.html">Gallery &amp; Blog</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
         <div>
           <h4 class="footer-title">Training Verticals</h4>
           <ul class="footer-links">
-            <li><a href="programs.html#ai-section">Artificial Intelligence</a></li>
-            <li><a href="programs.html#op-section">Operational Excellence</a></li>
-            <li><a href="programs.html#tech-section">Industrial Tech</a></li>
+            <li><a href="ai-training.html">Artificial Intelligence</a></li>
+            <li><a href="c2c-skills.html">Operational Excellence</a></li>
+            <li><a href="industrial-training.html">Industrial Automation</a></li>
             <li><a href="book-demo.html">Book Free Demo</a></li>
           </ul>
         </div>
-        <div>
+                <div>
           <h4 class="footer-title">Contact &amp; Admissions</h4>
           <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:0.6rem;"><i class="fas fa-phone-alt" style="color:var(--warm-coral);"></i> +91 7078437914</p>
           <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:0.6rem;"><i class="fas fa-envelope" style="color:var(--warm-coral);"></i> <a href="mailto:info@nexgenc2cskills.com" style="color:#FFFFFF;">info@nexgenc2cskills.com</a></p>
-          <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:1.2rem;"><i class="fas fa-map-marker-alt" style="color:var(--warm-coral);"></i> Noida &amp; Greater Noida, NCR, India</p>
+          <p style="color:#FFFFFF; font-size:0.88rem; margin-bottom:0.6rem; line-height:1.5;"><i class="fas fa-map-marker-alt" style="color:var(--warm-coral);"></i> <strong>Manesar:</strong> Plot No. 403, Sector-1, IMT Manesar, Gurgaon, Haryana – 122051</p>
+          <p style="color:#FFFFFF; font-size:0.88rem; margin-bottom:1.2rem; line-height:1.5;"><i class="fas fa-map-marker-alt" style="color:var(--warm-coral);"></i> <strong>Rewari:</strong> Aujun Nagar, Rewari, Near Raja Vatika, Haryana – 123401</p>
           <a href="book-demo.html" class="btn btn-sm btn-primary" style="width:100%;">Book Free Demo Class</a>
         </div>
       </div>

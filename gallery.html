@@ -3,12 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshops & Campus Gallery | NexGen C2C Skills</title>
-  <meta name="description" content="View photo galleries and glimpses of NexGen C2C Skills training sessions, college bootcamps, and robotics labs.">
+  <title>Gallery &amp; Blog | NexGen C2C Skills</title>
+  <meta name="description" content="Explore photos, campus workshops, robotics labs, student achievements, and expert articles on AI, Operational Excellence, and Industrial Tech.">
   <link rel="icon" type="image/png" href="assets/images/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="assets/css/style.css?v=2.1">
-  <link rel="stylesheet" href="assets/css/animations.css?v=2.1">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/animations.css?v=2.4">
+  <style>
+    .gallery-blog-tab-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .view-tab-btn {
+      background: #FFFFFF;
+      color: var(--midnight-indigo);
+      border: 1.5px solid var(--border-light-gray);
+      padding: 0.8rem 2rem;
+      border-radius: var(--radius-full);
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 14px rgba(4, 15, 73, 0.08);
+      transition: all 0.25s ease;
+    }
+    .view-tab-btn:hover, .view-tab-btn.active {
+      background: var(--logo-red);
+      color: #FFFFFF;
+      border-color: var(--logo-red);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 4, 4, 0.28);
+    }
+    .blog-filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+  </style>
 </head>
 <body>
   <!-- Ambient Canvas Background -->
@@ -30,21 +68,58 @@
         <img src="assets/images/logo.png" alt="NexGen C2C Skills Official Logo" width="180" height="52">
       </a>
 
+            <!-- Desktop Navigation Menu -->
       <ul class="nav-menu">
-        <li><a href="career-path.html" class="nav-link">Choose Your Career Path</a></li>
         <li><a href="about.html" class="nav-link">About Us</a></li>
+        
+        <!-- Our Training Dropdown -->
         <li class="nav-dropdown">
-          <a href="programs.html" class="nav-link"><span>Our Programs</span> <i class="fas fa-chevron-down" style="font-size:0.75rem;"></i></a>
+          <a href="programs.html" class="nav-link">
+            <span>Our Training</span> <i class="fas fa-chevron-down" style="font-size:0.75rem;"></i>
+          </a>
           <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="programs.html"><i class="fas fa-th-large"></i> All Programs Overview</a></li>
-            <li class="dropdown-item"><a href="programs.html#ai-section"><i class="fas fa-robot"></i> Artificial Intelligence</a></li>
-            <li class="dropdown-item"><a href="programs.html#op-section"><i class="fas fa-chart-line"></i> Operational Excellence</a></li>
-            <li class="dropdown-item"><a href="programs.html#tech-section"><i class="fas fa-cogs"></i> Industrial Tech</a></li>
+            <li class="dropdown-item">
+              <a href="programs.html">
+                <i class="fas fa-th-large"></i>
+                <div>
+                  <strong>All Training Overview</strong>
+                  <small style="display:block; color:var(--text-body-dark); font-size:0.75rem;">Master Catalog &amp; 3 Verticals</small>
+                </div>
+              </a>
+            </li>
+            <li class="dropdown-item">
+              <a href="ai-training.html">
+                <i class="fas fa-robot"></i>
+                <div>
+                  <strong>Artificial Intelligence</strong>
+                  <small style="display:block; color:var(--text-body-dark); font-size:0.75rem;">8 Specialized AI Courses</small>
+                </div>
+              </a>
+            </li>
+            <li class="dropdown-item">
+              <a href="c2c-skills.html">
+                <i class="fas fa-chart-line"></i>
+                <div>
+                  <strong>Operational Excellence</strong>
+                  <small style="display:block; color:var(--text-body-dark); font-size:0.75rem;">Lean, Six Sigma, 8D &amp; OEE</small>
+                </div>
+              </a>
+            </li>
+            <li class="dropdown-item">
+              <a href="industrial-training.html">
+                <i class="fas fa-cogs"></i>
+                <div>
+                  <strong>Industrial Automation</strong>
+                  <small style="display:block; color:var(--text-body-dark); font-size:0.75rem;">Industry 4.0, PLC &amp; Robotics</small>
+                </div>
+              </a>
+            </li>
           </ul>
         </li>
+
+        <li><a href="career-path.html" class="nav-link">Choose Your Career Path</a></li>
         <li><a href="events.html" class="nav-link">Upcoming Events</a></li>
-        <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="gallery.html" class="nav-link active">Gallery &amp; Blog</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
 
@@ -57,27 +132,162 @@
   </header>
 
   <!-- Page Hero -->
-  <section class="page-hero">
+  <section class="page-hero hero-gallery">
     <div class="container">
-      <span class="pill-badge white-theme"><i class="fas fa-photo-video"></i> PHOTO &amp; LAB ARCHIVE</span>
-      <h1 class="page-hero-title">Life at NexGen C2C Skills</h1>
+      <span class="pill-badge white-theme"><i class="fas fa-photo-video"></i> MOMENTS &amp; KNOWLEDGE VAULT</span>
+      <h1 class="page-hero-title">Gallery &amp; Blog Hub</h1>
       <p class="page-hero-desc">
-        Explore moments from our college placement bootcamps, faculty development labs, and corporate automation seminars.
+        Glimpses of active campus bootcamps, hands-on automation labs, and expert thought leadership articles across AI, Lean operations, and Industry 4.0.
       </p>
     </div>
   </section>
 
-  <!-- Gallery Section -->
-  <section class="gallery-section">
+  <!-- Main Unified Section -->
+  <section style="padding: 4.5rem 0 6rem 0; background: var(--beige-warm);">
     <div class="container">
-      <div class="gallery-filter-bar reveal">
-        <button class="tool-filter-btn gallery-filter-btn active" data-category="all">All Photos</button>
-        <button class="tool-filter-btn gallery-filter-btn" data-category="Campus">Campus Workshops</button>
-        <button class="tool-filter-btn gallery-filter-btn" data-category="Corporate">Corporate Training</button>
-        <button class="tool-filter-btn gallery-filter-btn" data-category="Technical">Automation Labs</button>
+
+      <!-- Switcher Tabs: All / Photo Gallery / Blog Articles -->
+      <div class="gallery-blog-tab-bar reveal">
+        <button class="view-tab-btn active" onclick="switchSection('all', this)">
+          <i class="fas fa-th-large"></i> <span>All Highlights</span>
+        </button>
+        <button class="view-tab-btn" onclick="switchSection('gallery', this)">
+          <i class="fas fa-images"></i> <span>Photo Gallery</span>
+        </button>
+        <button class="view-tab-btn" onclick="switchSection('blog', this)">
+          <i class="fas fa-newspaper"></i> <span>Articles &amp; Blog</span>
+        </button>
       </div>
 
-      <div id="dynamic-gallery-grid" class="gallery-grid reveal"></div>
+      <!-- =====================================================================
+           SECTION 1: PHOTO GALLERY
+           ===================================================================== -->
+      <div id="gallery-container-block" style="margin-bottom: 5rem;">
+        <div class="section-header reveal">
+          <span class="pill-badge midnight"><i class="fas fa-camera-retro"></i> PHOTO ARCHIVE</span>
+          <h2 class="section-title">Life at NexGen C2C Skills</h2>
+          <p class="section-desc">Hands-on college bootcamps, corporate executive sessions, robotics labs, and student certifications.</p>
+        </div>
+
+        <div class="gallery-filter-bar reveal">
+          <button class="tool-filter-btn gallery-filter-btn active" data-category="all">All Photos</button>
+          <button class="tool-filter-btn gallery-filter-btn" data-category="Campus">Campus Workshops</button>
+          <button class="tool-filter-btn gallery-filter-btn" data-category="Corporate">Corporate Training</button>
+          <button class="tool-filter-btn gallery-filter-btn" data-category="Technical">Automation Labs</button>
+        </div>
+
+        <div id="dynamic-gallery-grid" class="gallery-grid reveal"></div>
+      </div>
+
+      <!-- =====================================================================
+           SECTION 2: BLOG & ARTICLES
+           ===================================================================== -->
+      <div id="blog-container-block">
+        <div class="section-header reveal">
+          <span class="pill-badge midnight"><i class="fas fa-book-open"></i> ARTICLES &amp; INSIGHTS</span>
+          <h2 class="section-title">Knowledge Hub &amp; Expert Guides</h2>
+          <p class="section-desc">Industry-aligned articles written by IIT/IIM mentors, corporate leaders, and automation specialists.</p>
+        </div>
+
+        <div class="blog-grid reveal">
+          <!-- Article 1: AI Prompt Engineering -->
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=700&q=80" alt="Generative AI Guide" class="blog-card-img">
+            <div class="blog-card-body">
+              <div>
+                <span class="pill-badge midnight" style="font-size:0.75rem; margin-bottom:0.6rem;">Artificial Intelligence</span>
+                <h3 style="color:var(--midnight-indigo); font-size:1.25rem; font-weight:800; margin-bottom:0.6rem; line-height:1.4;">Mastering Context Windows &amp; Few-Shot Prompting in 2026</h3>
+                <p style="color:var(--text-body-dark); font-size:0.9rem; margin-bottom:1.4rem; line-height:1.6;">How to structure your prompt architecture to extract deterministic and structured business intelligence from LLMs.</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light-gray); padding-top:1rem;">
+                <small style="color:var(--text-secondary); font-weight:600;"><i class="far fa-clock"></i> 5 Min Read</small>
+                <a href="book-demo.html" style="color:var(--logo-red); font-weight:700; font-size:0.88rem;">Read Article &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2: 7 Habits Leadership -->
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=80" alt="Leadership & Habits" class="blog-card-img">
+            <div class="blog-card-body">
+              <div>
+                <span class="pill-badge midnight" style="font-size:0.75rem; margin-bottom:0.6rem;">Campus to Corporate</span>
+                <h3 style="color:var(--midnight-indigo); font-size:1.25rem; font-weight:800; margin-bottom:0.6rem; line-height:1.4;">Why Stephen Covey's 7 Habits Are Vital in the AI Era</h3>
+                <p style="color:var(--text-body-dark); font-size:0.9rem; margin-bottom:1.4rem; line-height:1.6;">While tools automate repetitive tasks, proactive prioritization, empathetic listening, and synergy define corporate trajectory.</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light-gray); padding-top:1rem;">
+                <small style="color:var(--text-secondary); font-weight:600;"><i class="far fa-clock"></i> 7 Min Read</small>
+                <a href="book-demo.html" style="color:var(--logo-red); font-weight:700; font-size:0.88rem;">Read Article &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3: 8D Problem Solving -->
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80" alt="Industrial Automation 4.0" class="blog-card-img">
+            <div class="blog-card-body">
+              <div>
+                <span class="pill-badge midnight" style="font-size:0.75rem; margin-bottom:0.6rem;">Industrial Engineering</span>
+                <h3 style="color:var(--midnight-indigo); font-size:1.25rem; font-weight:800; margin-bottom:0.6rem; line-height:1.4;">8D Problem Solving Methodology in Smart Factories</h3>
+                <p style="color:var(--text-body-dark); font-size:0.9rem; margin-bottom:1.4rem; line-height:1.6;">A step-by-step implementation roadmap for root cause failure analysis (RCA) across automated manufacturing lines.</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light-gray); padding-top:1rem;">
+                <small style="color:var(--text-secondary); font-weight:600;"><i class="far fa-clock"></i> 6 Min Read</small>
+                <a href="book-demo.html" style="color:var(--logo-red); font-weight:700; font-size:0.88rem;">Read Article &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4: AI Agents & Automated Workflows -->
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80" alt="AI Agents" class="blog-card-img">
+            <div class="blog-card-body">
+              <div>
+                <span class="pill-badge midnight" style="font-size:0.75rem; margin-bottom:0.6rem;">Future Tech</span>
+                <h3 style="color:var(--midnight-indigo); font-size:1.25rem; font-weight:800; margin-bottom:0.6rem; line-height:1.4;">Building Multi-Agent Workflows with n8n, Make &amp; Claude</h3>
+                <p style="color:var(--text-body-dark); font-size:0.9rem; margin-bottom:1.4rem; line-height:1.6;">How modern enterprises connect LLM APIs to databases, spreadsheets, and CRM pipelines for 10x throughput.</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light-gray); padding-top:1rem;">
+                <small style="color:var(--text-secondary); font-weight:600;"><i class="far fa-clock"></i> 8 Min Read</small>
+                <a href="book-demo.html" style="color:var(--logo-red); font-weight:700; font-size:0.88rem;">Read Article &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 5: Lean Six Sigma & OEE -->
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=700&q=80" alt="Lean Six Sigma" class="blog-card-img">
+            <div class="blog-card-body">
+              <div>
+                <span class="pill-badge midnight" style="font-size:0.75rem; margin-bottom:0.6rem;">Operational Excellence</span>
+                <h3 style="color:var(--midnight-indigo); font-size:1.25rem; font-weight:800; margin-bottom:0.6rem; line-height:1.4;">The 8 Wastes of Lean &amp; How to Maximize Factory OEE</h3>
+                <p style="color:var(--text-body-dark); font-size:0.9rem; margin-bottom:1.4rem; line-height:1.6;">Eliminating non-value-added bottlenecks through 5S, Kaizen, and real-time machine telemetry monitoring.</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light-gray); padding-top:1rem;">
+                <small style="color:var(--text-secondary); font-weight:600;"><i class="far fa-clock"></i> 6 Min Read</small>
+                <a href="book-demo.html" style="color:var(--logo-red); font-weight:700; font-size:0.88rem;">Read Article &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 6: Campus Placement Playbook -->
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80" alt="Campus Placement Guide" class="blog-card-img">
+            <div class="blog-card-body">
+              <div>
+                <span class="pill-badge midnight" style="font-size:0.75rem; margin-bottom:0.6rem;">Career Guide</span>
+                <h3 style="color:var(--midnight-indigo); font-size:1.25rem; font-weight:800; margin-bottom:0.6rem; line-height:1.4;">Day 1 Readiness: Cracking High-Growth Engineering Placements</h3>
+                <p style="color:var(--text-body-dark); font-size:0.9rem; margin-bottom:1.4rem; line-height:1.6;">Bridging the college curriculum gap with real-world capstones, practical lab experience, and structured communication.</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light-gray); padding-top:1rem;">
+                <small style="color:var(--text-secondary); font-weight:600;"><i class="far fa-clock"></i> 5 Min Read</small>
+                <a href="book-demo.html" style="color:var(--logo-red); font-weight:700; font-size:0.88rem;">Read Article &rarr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -93,12 +303,24 @@
     </div>
   </div>
 
+  <!-- Newsletter / CTA Strip -->
+  <section style="padding: 4.5rem 0; background: var(--pure-white); text-align:center;">
+    <div class="container">
+      <div style="background:var(--midnight-indigo); border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius-xl); padding:3.5rem 2rem; max-width:850px; margin:0 auto; box-shadow:var(--shadow-luxury);" class="reveal">
+        <span class="pill-badge white-theme" style="margin-bottom:1rem;"><i class="fas fa-graduation-cap"></i> STAY UPDATED</span>
+        <h2 style="font-size:2.2rem; color:#FFFFFF; margin-bottom:1rem;">Stay Ahead in the AI &amp; Automation Era</h2>
+        <p style="color:rgba(255,255,255,0.85); margin-bottom:2rem; font-size:1.05rem;">Get weekly insights on generative AI prompting, shop-floor lean strategies, and upcoming masterclasses delivered to you.</p>
+        <a href="book-demo.html" class="btn btn-primary btn-lg">Book Free Demo &amp; Webinar</a>
+      </div>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="brand-logo" style="margin-bottom: 1.2rem;">
-            <img src="assets/images/logo.png" alt="NexGen C2C Skills Logo" width="170" height="48">
+            <img src="assets/images/logo-footer.png" alt="NexGen C2C Skills Logo" width="170" height="48">
           </div>
           <p style="color:#FFFFFF; font-size:0.9rem; line-height:1.7; margin-bottom:1.5rem;">
             India’s premier institution for building future-ready capabilities. Guidance from IIT &amp; IIM alumni.
@@ -108,29 +330,31 @@
           </p>
         </div>
         <div>
-          <h4 class="footer-title">Quick Links</h4>
+                    <h4 class="footer-title">Quick Links</h4>
           <ul class="footer-links">
-            <li><a href="career-path.html">Choose Your Career Path</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="programs.html">Our Training</a></li>
+            <li><a href="career-path.html">Choose Your Career Path</a></li>
             <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="gallery.html">Gallery &amp; Blog</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
         <div>
           <h4 class="footer-title">Training Verticals</h4>
           <ul class="footer-links">
-            <li><a href="programs.html#ai-section">Artificial Intelligence</a></li>
-            <li><a href="programs.html#op-section">Operational Excellence</a></li>
-            <li><a href="programs.html#tech-section">Industrial Tech</a></li>
+            <li><a href="ai-training.html">Artificial Intelligence</a></li>
+            <li><a href="c2c-skills.html">Operational Excellence</a></li>
+            <li><a href="industrial-training.html">Industrial Automation</a></li>
             <li><a href="book-demo.html">Book Free Demo</a></li>
           </ul>
         </div>
-        <div>
+                <div>
           <h4 class="footer-title">Contact &amp; Admissions</h4>
           <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:0.6rem;"><i class="fas fa-phone-alt" style="color:var(--warm-coral);"></i> +91 7078437914</p>
           <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:0.6rem;"><i class="fas fa-envelope" style="color:var(--warm-coral);"></i> <a href="mailto:info@nexgenc2cskills.com" style="color:#FFFFFF;">info@nexgenc2cskills.com</a></p>
-          <p style="color:#FFFFFF; font-size:0.9rem; margin-bottom:1.2rem;"><i class="fas fa-map-marker-alt" style="color:var(--warm-coral);"></i> Noida &amp; Greater Noida, NCR, India</p>
+          <p style="color:#FFFFFF; font-size:0.88rem; margin-bottom:0.6rem; line-height:1.5;"><i class="fas fa-map-marker-alt" style="color:var(--warm-coral);"></i> <strong>Manesar:</strong> Plot No. 403, Sector-1, IMT Manesar, Gurgaon, Haryana – 122051</p>
+          <p style="color:#FFFFFF; font-size:0.88rem; margin-bottom:1.2rem; line-height:1.5;"><i class="fas fa-map-marker-alt" style="color:var(--warm-coral);"></i> <strong>Rewari:</strong> Aujun Nagar, Rewari, Near Raja Vatika, Haryana – 123401</p>
           <a href="book-demo.html" class="btn btn-sm btn-primary" style="width:100%;">Book Free Demo Class</a>
         </div>
       </div>
@@ -144,5 +368,25 @@
   <script src="assets/js/store.js"></script>
   <script src="assets/js/canvas-bg.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+    function switchSection(type, btn) {
+      document.querySelectorAll('.view-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const galBlock = document.getElementById('gallery-container-block');
+      const blogBlock = document.getElementById('blog-container-block');
+
+      if (type === 'all') {
+        galBlock.style.display = 'block';
+        blogBlock.style.display = 'block';
+      } else if (type === 'gallery') {
+        galBlock.style.display = 'block';
+        blogBlock.style.display = 'none';
+      } else if (type === 'blog') {
+        galBlock.style.display = 'none';
+        blogBlock.style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>

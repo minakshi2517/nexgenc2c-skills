@@ -7,64 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Executive Brand Theme
   document.documentElement.removeAttribute('data-theme');
 
-  // Apply Official NexGen Brand Graphic Wordmark across all visible text nodes
-  function applyBrandWordmark(root = document.body) {
-    if (!root) return;
-    const walker = document.createTreeWalker(
-      root,
-      NodeFilter.SHOW_TEXT,
-      {
-        acceptNode(node) {
-          if (!node.nodeValue || !node.nodeValue.match(/NexGen|Next\s*Gen/i)) return NodeFilter.FILTER_REJECT;
-          // Strictly protect email addresses and URLs
-          if (node.nodeValue.includes('@') || node.nodeValue.includes('http') || node.nodeValue.includes('.com')) return NodeFilter.FILTER_REJECT;
-          const parent = node.parentElement;
-          if (!parent) return NodeFilter.FILTER_REJECT;
-          const tag = parent.tagName.toLowerCase();
-          if (['script', 'style', 'noscript', 'textarea', 'input', 'select', 'option', 'title', 'code', 'pre'].includes(tag)) return NodeFilter.FILTER_REJECT;
-          if (parent.closest('a[href^="mailto:"], a[href^="tel:"], .brand-wordmark, .brand-inline, .brand-logo, .client-chip, .events-ticker-bar')) return NodeFilter.FILTER_REJECT;
-          return NodeFilter.FILTER_ACCEPT;
-        }
-      }
-    );
-
-    const nodesToReplace = [];
-    while (walker.nextNode()) {
-      nodesToReplace.push(walker.currentNode);
-    }
-
-    nodesToReplace.forEach(textNode => {
-      const parent = textNode.parentNode;
-      if (!parent) return;
-      const originalText = textNode.nodeValue;
-      const frag = document.createDocumentFragment();
-      
-      const parts = originalText.split(/(NexGen|Next\s*Gen)/i);
-      let changed = false;
-
-      parts.forEach(part => {
-        if (/^(NexGen|Next\s*Gen)$/i.test(part)) {
-          changed = true;
-          const img = document.createElement('img');
-          img.className = 'nexgen-inline-img';
-          img.src = 'assets/images/nexgen-wordmark.png';
-          img.alt = 'NexGen';
-          frag.appendChild(img);
-        } else if (part.length > 0) {
-          frag.appendChild(document.createTextNode(part));
-        }
-      });
-
-      if (changed) {
-        parent.replaceChild(frag, textNode);
-      }
-    });
-  }
-
-  applyBrandWordmark();
-  setTimeout(() => applyBrandWordmark(), 150);
-  setTimeout(() => applyBrandWordmark(), 500);
-
 
   // 2. Sticky Navbar & Back to Top Button
   const navbar = document.querySelector('.header-nav');
@@ -499,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function startAutoSlide() {
-      autoSlideTimer = setInterval(nextSlide, 6000);
+      autoSlideTimer = setInterval(nextSlide, 3000);
     }
     function resetAutoSlide() {
       if (autoSlideTimer) clearInterval(autoSlideTimer);
@@ -523,5 +465,36 @@ document.addEventListener('DOMContentLoaded', () => {
       panel.style.display = panel.getAttribute('data-panel') === goalKey ? 'block' : 'none';
     });
   };
+
+  // 8. Homepage Events Horizontal Slider
+  const eventsTrack = document.getElementById('home-events-track');
+  const eventsPrev = document.getElementById('events-prev-btn');
+  const eventsNext = document.getElementById('events-next-btn');
+
+  if (eventsTrack) {
+    let eventSlideIndex = 0;
+    const cardWidth = 405; // 380px + gap
+
+    function slideEvents(direction) {
+      const cards = eventsTrack.querySelectorAll('.events-slide-card');
+      const maxIndex = Math.max(0, cards.length - 2);
+      if (direction === 'next') {
+        eventSlideIndex = (eventSlideIndex + 1) > maxIndex ? 0 : eventSlideIndex + 1;
+      } else {
+        eventSlideIndex = (eventSlideIndex - 1) < 0 ? maxIndex : eventSlideIndex - 1;
+      }
+      eventsTrack.style.transform = `translateX(-${eventSlideIndex * cardWidth}px)`;
+    }
+
+    if (eventsNext) eventsNext.addEventListener('click', () => slideEvents('next'));
+    if (eventsPrev) eventsPrev.addEventListener('click', () => slideEvents('prev'));
+
+    // Auto slide events every 4 seconds
+    let eventsTimer = setInterval(() => slideEvents('next'), 4000);
+    eventsTrack.addEventListener('mouseenter', () => clearInterval(eventsTimer));
+    eventsTrack.addEventListener('mouseleave', () => {
+      eventsTimer = setInterval(() => slideEvents('next'), 4000);
+    });
+  }
 });
 
