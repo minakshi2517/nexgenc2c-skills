@@ -825,11 +825,12 @@ a {
   justify-content: center;
 }
 
-.moving-slide .pill-badge {
-  background: var(--logo-red);
-  color: #FFFFFF !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75);
+.moving-slide .pill-badge,
+.moving-slide .pill-badge.gold {
+  background: #FFFFFF !important;
+  color: var(--midnight-indigo) !important;
+  border: 1.5px solid #FFFFFF !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   font-weight: 800;
   letter-spacing: 0.05em;
   padding: 0.5rem 1.2rem;
@@ -839,7 +840,16 @@ a {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
+}
+
+.slide-2 .pill-badge,
+.slide-2 .pill-badge.gold,
+.slide-4 .pill-badge,
+.slide-4 .pill-badge.gold {
+  background: var(--midnight-indigo) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid var(--midnight-indigo) !important;
 }
 
 .moving-slide .slide-title {
@@ -1213,6 +1223,28 @@ a {
 
 .hero-book-demo {
   background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80') !important;
+}
+
+/* Top hero badges: blue on photo heroes, white on solid/no-image heroes */
+.hero-about .pill-badge,
+.hero-programs .pill-badge,
+.hero-ai .pill-badge,
+.hero-industrial .pill-badge,
+.hero-events .pill-badge,
+.hero-gallery .pill-badge,
+.hero-blog .pill-badge,
+.hero-contact .pill-badge,
+.hero-book-demo .pill-badge {
+  background: var(--midnight-indigo) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid var(--midnight-indigo) !important;
+}
+
+.hero-career-path .pill-badge,
+.hero-c2c .pill-badge {
+  background: #FFFFFF !important;
+  color: var(--midnight-indigo) !important;
+  border: 1.5px solid #FFFFFF !important;
 }
 
 /* ==========================================================================
