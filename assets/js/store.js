@@ -29,7 +29,7 @@ const NexGenStore = {
       },
       {
         id: "evt-3",
-        title: "Industrial Automation 4.0: Hands-On PLC & SCADA Simulation",
+        title: "Industrial Automation 4.0: Hands-On PLC & HMI Simulation",
         category: "Technical Lab",
         date: "2026-09-12",
         time: "02:00 PM IST",
@@ -70,7 +70,7 @@ const NexGenStore = {
         mode: "Hardware Lab + Simulation",
         icon: "fa-cogs",
         link: "industrial-training.html",
-        description: "Hands-on Industry 4.0, PLC programming (Siemens, Allen Bradley), SCADA/HMI design, IIoT, robotics motion control, and digital twins."
+        description: "Hands-on PLC programming, HMI design, and industrial sensors through lab practice and plant-aligned projects."
       }
     ],
     gallery: [
@@ -92,7 +92,7 @@ const NexGenStore = {
       },
       {
         id: "gal-3",
-        title: "PLC & SCADA Industrial Automation Training Lab",
+        title: "PLC & HMI Industrial Automation Training Lab",
         category: "Technical",
         tag: "Hands-on Automation",
         image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",

@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc = 'Empower your institution and students. Master pedagogy for AI tools, curriculum integration, and student mentoring.';
     } else if (quizAnswers.goal === 'technical') {
       title = 'Industry-Ready Technical & Automation Program';
-      desc = 'Deep dive into Operational Excellence (Lean/TPM), PLC/SCADA Automation, and Industrial Robotics with real factory case studies.';
+      desc = 'Deep dive into PLC, HMI, and industrial sensors with real factory case studies.';
     }
 
     document.getElementById('quiz-result-title').textContent = title;
