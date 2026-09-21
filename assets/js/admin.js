@@ -3,6 +3,7 @@
  */
 
 let currentPendingEmail = "";
+let currentOtpChallenge = "";
 let resendTimerInterval = null;
 
 // Auth State Check on Page Load
@@ -88,6 +89,7 @@ window.handleStep1Submit = async function(e) {
     }
 
     currentPendingEmail = emailInput;
+    currentOtpChallenge = data.otpChallenge || "";
 
     // Transition to Step 2
     document.getElementById("admin-login-step1").style.display = "none";
@@ -100,7 +102,7 @@ window.handleStep1Submit = async function(e) {
     if (firstOtpInput) setTimeout(() => firstOtpInput.focus(), 150);
 
     // If devMode is active without SMTP set, show helper banner
-    if (data.devMode && data.devOtp) {
+    if (data.devOtp) {
       showEmailOtpToast(data.devOtp, currentPendingEmail);
     }
   } catch (err) {
@@ -135,7 +137,7 @@ window.handleStep2Submit = async function(e) {
     const res = await fetch("/api/auth/verify-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: currentPendingEmail, otp: digits })
+      body: JSON.stringify({ email: currentPendingEmail, otp: digits, otpChallenge: currentOtpChallenge })
     });
 
     const data = await res.json();
@@ -198,7 +200,8 @@ window.resendOtpCode = async function(e) {
     });
     const data = await res.json();
 
-    if (data.success && data.devMode && data.devOtp) {
+    if (data.otpChallenge) currentOtpChallenge = data.otpChallenge;
+    if (data.devOtp) {
       showEmailOtpToast(data.devOtp, currentPendingEmail);
     }
     alert(data.message || "New 2FA code sent!");

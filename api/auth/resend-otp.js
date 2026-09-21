@@ -1,4 +1,4 @@
-const { getConfig, generateOTP, sendOTPEmail } = require('../../lib/auth-service');
+const { getConfig, generateOTP, sendOTPEmail, createOtpChallenge } = require('../../lib/auth-service');
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -31,13 +31,15 @@ module.exports = async (req, res) => {
     }
 
     const otp = generateOTP();
+    const otpChallenge = createOtpChallenge(config.adminEmail, otp);
     const emailResult = await sendOTPEmail(config.adminEmail, otp);
 
     return res.status(200).json({
       success: true,
       message: `A fresh 6-digit OTP has been sent to ${config.adminEmail}.`,
-      devMode: emailResult.method === 'dev-log',
-      devOtp: emailResult.devOtp || null
+      otpChallenge,
+      devMode: emailResult.method === 'dev-log' || !!emailResult.fallbackOtp,
+      devOtp: emailResult.devOtp || emailResult.fallbackOtp || null
     });
   } catch (error) {
     console.error('Resend OTP API error:', error);

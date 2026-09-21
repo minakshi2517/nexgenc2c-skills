@@ -1,4 +1,4 @@
-const { getConfig, generateOTP, sendOTPEmail } = require('../../lib/auth-service');
+const { getConfig, generateOTP, sendOTPEmail, createOtpChallenge } = require('../../lib/auth-service');
 
 module.exports = async (req, res) => {
   // Set CORS headers
@@ -45,14 +45,16 @@ module.exports = async (req, res) => {
 
     // Credentials valid: generate and dispatch 2FA OTP
     const otp = generateOTP();
+    const otpChallenge = createOtpChallenge(config.adminEmail, otp);
     const emailResult = await sendOTPEmail(config.adminEmail, otp);
 
     return res.status(200).json({
       success: true,
       message: `A 6-digit 2FA verification code has been sent to ${config.adminEmail}.`,
       targetEmail: config.adminEmail,
-      devMode: emailResult.method === 'dev-log',
-      devOtp: emailResult.devOtp || null
+      otpChallenge,
+      devMode: emailResult.method === 'dev-log' || !!emailResult.fallbackOtp,
+      devOtp: emailResult.devOtp || emailResult.fallbackOtp || null
     });
   } catch (error) {
     console.error('Login API error:', error);

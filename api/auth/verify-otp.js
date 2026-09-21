@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
     if (typeof body === 'string') {
       try { body = JSON.parse(body); } catch(e) {}
     }
-    const { email, otp } = body || {};
+    const { email, otp, otpChallenge } = body || {};
 
     if (!email || !otp) {
       return res.status(400).json({ success: false, message: 'Email and 6-digit OTP are required.' });
@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
       return res.status(401).json({ success: false, message: 'Unauthorized email address.' });
     }
 
-    const verification = verifyOTP(config.adminEmail, otp);
+    const verification = verifyOTP(config.adminEmail, otp, otpChallenge);
     if (!verification.valid) {
       return res.status(401).json({ success: false, message: verification.message });
     }
