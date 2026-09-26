@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="assets/css/style.css?v=2.9">
   <link rel="stylesheet" href="assets/css/animations.css?v=2.1">
-  <link rel="stylesheet" href="assets/css/admin.css?v=1.0">
+  <link rel="stylesheet" href="assets/css/admin.css?v=1.1">
 </head>
 <body style="background:#050914; min-height:100vh;">
 
@@ -151,7 +151,7 @@
         <i class="fas fa-tachometer-alt"></i> Dashboard Overview
       </button>
       <button class="admin-nav-item" data-tab="courses">
-        <i class="fas fa-graduation-cap"></i> Manage Courses
+        <i class="fas fa-graduation-cap"></i> 3 Pillars &amp; Modules
       </button>
       <button class="admin-nav-item" data-tab="events">
         <i class="fas fa-calendar-alt"></i> Upcoming Events
@@ -248,7 +248,7 @@
             <li><strong style="color:#fff;">Gallery photos:</strong> Open the Gallery tab, click Add Photo Card, enter a title, category (Campus / Corporate / Technical), tag, image URL, and date. The photo appears on the public Gallery page in this browser.</li>
             <li><strong style="color:#fff;">Replace a photo:</strong> Host the file or put it in assets/images/, then paste that URL. To change an existing card, delete it and add it again.</li>
             <li><strong style="color:#fff;">Events ticker:</strong> Use the Events tab. New items show on the homepage ticker and Events page.</li>
-            <li><strong style="color:#fff;">Courses:</strong> Use the Courses tab for duration, mode, and description. Keep Industrial Automation on PLC, HMI, and Sensors only.</li>
+            <li><strong style="color:#fff;">3 Pillars &amp; modules:</strong> Open the 3 Pillars &amp; Modules tab. Edit titles, subheadings, bullets, and duration on the three vertical cards. Add extra course/module cards for AI, Automation, or Operational Excellence pages.</li>
             <li><strong style="color:#fff;">Banners:</strong> Replace the image file using the same name (for example slide_industrial_freshers.jpg) and refresh.</li>
             <li><strong style="color:#fff;">Leads:</strong> Demo and contact inquiries appear under Leads. Export CSV from the dashboard when needed.</li>
           </ol>
@@ -260,30 +260,34 @@
            TAB 2: COURSES MANAGER
            ========================================== -->
       <div id="tab-courses" class="admin-tab-content">
+        <div style="margin-bottom:2.2rem;">
+          <h2 style="color:#fff; font-size:1.8rem;">3 Core Pillars</h2>
+          <p style="color:var(--text-secondary); margin-bottom:1.2rem;">Edit titles, subheadings, duration, card bullets, and CTAs shown on Home and Programs.</p>
+          <div id="admin-pillars-grid" class="admin-stats-grid"></div>
+        </div>
+
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
           <div>
-            <h2 style="color:#fff; font-size:1.8rem;">Course & Program Manager</h2>
-            <p style="color:var(--text-secondary);">Add, update, or remove training tracks displayed across the portal.</p>
+            <h2 style="color:#fff; font-size:1.6rem;">Page Courses &amp; Modules</h2>
+            <p style="color:var(--text-secondary);">Add or edit course cards and module lists on AI, Automation, and Operational Excellence pages.</p>
           </div>
-          <button onclick="openAdminModal('modal-add-course')" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Add New Course
+          <button onclick="openModuleEditor()" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add Module / Course
           </button>
         </div>
 
         <table class="admin-data-table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Course Title</th>
-              <th>Category</th>
-              <th>Target Audience</th>
+              <th>#</th>
+              <th>Page / Pillar</th>
+              <th>Title</th>
+              <th>Subheading</th>
               <th>Duration</th>
               <th>Action</th>
             </tr>
           </thead>
-          <tbody id="courses-tbody">
-            <!-- Injected by Admin JS -->
-          </tbody>
+          <tbody id="modules-tbody"></tbody>
         </table>
       </div>
 
@@ -397,51 +401,108 @@
   <!-- ==========================================================================
        ADMIN MODALS
        ========================================================================== -->
-  <!-- 1. Add Course Modal -->
-  <div id="modal-add-course" class="modal-overlay">
-    <div class="modal-content-box">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-course')">&times;</button>
-      <span class="pill-badge cyan">COURSE CREATOR</span>
-      <h3 style="color:#fff; font-size:1.5rem; margin:0.8rem 0 1.2rem 0;">Add New Course Track</h3>
-
-      <form id="add-course-form" class="contact-form">
-        <div class="form-group">
-          <label>Course Title *</label>
-          <input type="text" id="c-title" class="form-control" placeholder="e.g. 07 | Autonomous AI Agents" required>
-        </div>
+  <div id="modal-edit-pillar" class="modal-overlay">
+    <div class="modal-content-box" style="max-width:720px;">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-edit-pillar')">&times;</button>
+      <span class="pill-badge cyan">3 PILLARS</span>
+      <h3 id="pillar-modal-title" style="color:#fff; font-size:1.5rem; margin:0.8rem 0 1.2rem 0;">Edit Pillar Card</h3>
+      <form id="edit-pillar-form" class="contact-form">
+        <input type="hidden" id="p-id">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
           <div class="form-group">
-            <label>Category *</label>
-            <select id="c-category" class="form-control" required>
-              <option value="Artificial Intelligence">Artificial Intelligence</option>
-              <option value="Operational Excellence">Operational Excellence</option>
-              <option value="Industrial Automation">Industrial Automation</option>
-            </select>
+            <label>Badge *</label>
+            <input type="text" id="p-badge" class="form-control" required>
           </div>
-          <div class="form-group">
-            <label>Target Audience *</label>
-            <input type="text" id="c-target" class="form-control" placeholder="e.g. Working Professionals" required>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
           <div class="form-group">
             <label>Duration *</label>
-            <input type="text" id="c-duration" class="form-control" placeholder="e.g. 6 Weeks" required>
+            <input type="text" id="p-duration" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Title *</label>
+          <input type="text" id="p-title" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Subheading *</label>
+          <input type="text" id="p-tagline" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Card description *</label>
+          <textarea id="p-desc" rows="3" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Home card bullets (one per line) *</label>
+          <textarea id="p-bullets" rows="4" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Programs page bullets (one per line)</label>
+          <textarea id="p-detail-bullets" rows="5" class="form-control"></textarea>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="form-group">
+            <label>Button text *</label>
+            <input type="text" id="p-cta" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>Delivery Mode *</label>
-            <input type="text" id="c-mode" class="form-control" placeholder="e.g. Live Online + Labs" required>
+            <label>Page link *</label>
+            <input type="text" id="p-link" class="form-control" required>
           </div>
         </div>
         <div class="form-group">
-          <label>FontAwesome Icon (Optional)</label>
-          <input type="text" id="c-icon" class="form-control" placeholder="e.g. fa-robot">
+          <label>Icon class</label>
+          <input type="text" id="p-icon" class="form-control" placeholder="fa-robot">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Save Pillar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="modal-edit-module" class="modal-overlay">
+    <div class="modal-content-box" style="max-width:720px;">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-edit-module')">&times;</button>
+      <span class="pill-badge cyan">COURSE / MODULE</span>
+      <h3 id="module-modal-title" style="color:#fff; font-size:1.5rem; margin:0.8rem 0 1.2rem 0;">Add Module</h3>
+      <form id="edit-module-form" class="contact-form">
+        <input type="hidden" id="m-id">
+        <div class="form-group">
+          <label>Show on page *</label>
+          <select id="m-pillar" class="form-control" required>
+            <option value="ai">Artificial Intelligence page</option>
+            <option value="automation">Industrial Automation page</option>
+            <option value="opex">Operational Excellence page</option>
+          </select>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="form-group">
+            <label>Badge</label>
+            <input type="text" id="m-badge" class="form-control" placeholder="e.g. 01. FOUNDATION">
+          </div>
+          <div class="form-group">
+            <label>Duration *</label>
+            <input type="text" id="m-duration" class="form-control" placeholder="e.g. 2 Months" required>
+          </div>
         </div>
         <div class="form-group">
-          <label>Description *</label>
-          <textarea id="c-desc" rows="3" class="form-control" placeholder="Course syllabus overview..." required></textarea>
+          <label>Course / module title *</label>
+          <input type="text" id="m-title" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;">Save Course to Database</button>
+        <div class="form-group">
+          <label>Subheading *</label>
+          <input type="text" id="m-subtitle" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Modules list (one per line) *</label>
+          <textarea id="m-modules" rows="5" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Key tools (comma separated)</label>
+          <input type="text" id="m-tools" class="form-control" placeholder="ChatGPT, Gemini, n8n">
+        </div>
+        <div class="form-group">
+          <label>Button text</label>
+          <input type="text" id="m-cta" class="form-control" placeholder="Enroll Now">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Save Module</button>
       </form>
     </div>
   </div>
@@ -568,7 +629,7 @@
 
   </div><!-- End #admin-cms-wrapper -->
 
-  <script src="assets/js/store.js?v=2.9"></script>
-  <script src="assets/js/admin.js?v=2.9"></script>
+  <script src="assets/js/store.js?v=3.1"></script>
+  <script src="assets/js/admin.js?v=3.1"></script>
 </body>
 </html>

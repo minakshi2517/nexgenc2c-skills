@@ -38,6 +38,84 @@ const NexGenStore = {
         link: "book-demo.html"
       }
     ],
+    pillars: [
+      {
+        id: "pillar-ai",
+        theme: "ai",
+        badge: "VERTICAL 01",
+        title: "Artificial Intelligence",
+        tagline: "Turn AI into a competitive advantage.",
+        description: "Build hands-on AI capabilities to work smarter, automate repetitive tasks, solve problems faster, and unlock new opportunities.",
+        duration: "6–8 Weeks",
+        icon: "fa-robot",
+        link: "ai-training.html",
+        cta: "View AI Programs →",
+        demoCta: "Book AI Demo Session",
+        bullets: [
+          "20+ AI Tools (ChatGPT, Claude, Gemini)",
+          "Prompt Engineering & AI Agents",
+          "Workflow Automation with Make & n8n"
+        ],
+        detailBullets: [
+          "20+ AI Tools: Learn & apply leading AI tools across real-world use cases",
+          "Prompt Engineering: Master the art of getting better results from AI",
+          "Workflow Automation: Automate repetitive tasks and streamline everyday work",
+          "AI Agents: Build intelligent agents that can perform tasks and workflows",
+          "AI-Powered Productivity: Use AI to research, create, analyze, and make decisions faster",
+          "Real-World Projects: Apply AI to practical business and workplace challenges"
+        ]
+      },
+      {
+        id: "pillar-automation",
+        theme: "automation",
+        badge: "VERTICAL 02",
+        title: "Industrial Automation",
+        tagline: "Build hands-on skills for the future of industry.",
+        description: "Get practical exposure to PLC programming, HMI operation, and industrial sensors through hands-on learning.",
+        duration: "8 Weeks Hands-on Lab",
+        icon: "fa-cogs",
+        link: "industrial-training.html",
+        cta: "View Automation Tracks →",
+        demoCta: "Book Automation Lab Demo",
+        bullets: [
+          "PLC Programming & Troubleshooting",
+          "HMI Operator Interfaces",
+          "Industrial Sensors"
+        ],
+        detailBullets: [
+          "PLC: Programming, wiring, and troubleshooting",
+          "HMI: Operator screens and plant visualization",
+          "Sensors: Detection, feedback, and shop-floor signals",
+          "Industry Projects: Real-world industrial applications"
+        ]
+      },
+      {
+        id: "pillar-opex",
+        theme: "opex",
+        badge: "VERTICAL 03",
+        title: "Operational Excellence",
+        tagline: "Build smarter, faster, and more efficient operations.",
+        description: "Build practical skills to improve productivity, OEE, quality, cost, and delivery using proven Lean Six Sigma & 8D methodologies.",
+        duration: "6 Weeks Practical",
+        icon: "fa-chart-line",
+        link: "c2c-skills.html",
+        cta: "View Operations Tracks →",
+        demoCta: "Book Operations Demo",
+        bullets: [
+          "Lean 5S, Kaizen, VSM, Waste Elimination",
+          "Six Sigma DMAIC & Process Capability",
+          "OEE, Bottleneck Analysis & Power BI"
+        ],
+        detailBullets: [
+          "Problem Solving: RCA, 5 Why, Fishbone, Pareto, 8D",
+          "Lean: 5S, Kaizen, VSM, Waste Elimination",
+          "Six Sigma: DMAIC, SPC, Process Capability",
+          "OEE & Productivity: Downtime, Cycle Time, Bottleneck & Loss Analysis",
+          "Process Excellence: Process Mapping, Line Balancing, Standard Work",
+          "Data & Performance: Excel, Minitab, Power BI, KPI Dashboards"
+        ]
+      }
+    ],
     courses: [
       {
         id: "crs-1",
@@ -71,6 +149,151 @@ const NexGenStore = {
         icon: "fa-cogs",
         link: "industrial-training.html",
         description: "Hands-on PLC programming, HMI design, and industrial sensors through lab practice and plant-aligned projects."
+      }
+    ],
+    modules: [
+      {
+        id: "mod-ai-1",
+        pillar: "ai",
+        badge: "01. FOUNDATION",
+        title: "NexGen AI Foundation",
+        subtitle: "Build your AI foundation.",
+        duration: "1 Month",
+        modulesText: "Module 1: AI & Generative AI Essentials\nModule 2: AI Tools & Prompting",
+        tools: "ChatGPT, Gemini, Claude, Suno, ElevenLabs",
+        cta: "Enroll in Foundation"
+      },
+      {
+        id: "mod-ai-2",
+        pillar: "ai",
+        badge: "02. ACCELERATOR",
+        title: "NexGen AI Accelerator",
+        subtitle: "Move from AI user to AI practitioner.",
+        duration: "2 Months",
+        modulesText: "Module 1: Advanced Prompt Engineering\nModule 2: AI Research & Knowledge Work\nModule 3: AI for Content, Data & Presentations\nModule 4: Multimodal AI & Real-World Applications",
+        tools: "ChatGPT, Gemini, Claude, NotebookLM, Canva AI, Gamma, Suno, HeyGen, ElevenLabs",
+        cta: "Enroll in Accelerator"
+      },
+      {
+        id: "mod-ai-3",
+        pillar: "ai",
+        badge: "03. PRODUCTIVITY",
+        title: "NexGen AI Productivity Professional",
+        subtitle: "Work smarter. Create faster. Deliver better.",
+        duration: "2 Months",
+        modulesText: "Module 1: AI-Powered Communication\nModule 2: AI for Documents, Excel & Presentations\nModule 3: AI Research, Analysis & Reporting\nModule 4: Personal AI Workflows & Productivity",
+        tools: "ChatGPT, Gemini, Claude, NotebookLM, Perplexity, Canva, Gamma, ChatGPT Data Analysis, Make",
+        cta: "Enroll in Productivity"
+      },
+      {
+        id: "mod-ai-4",
+        pillar: "ai",
+        badge: "04. AUTOMATION",
+        title: "NexGen AI Automation Specialist",
+        subtitle: "Automate repetitive work with AI.",
+        duration: "2 Months",
+        modulesText: "Module 1: Automation Mindset & Workflow Mapping\nModule 2: AI-Powered Workflow Automation\nModule 3: Business Process Automation\nModule 4: Build & Deploy Automation Projects",
+        tools: "ChatGPT, Gemini, Claude, NotebookLM, Perplexity, Canva, Gamma, Make, n8n, Zapier",
+        cta: "Enroll in Automation"
+      },
+      {
+        id: "mod-ai-5",
+        pillar: "ai",
+        badge: "05. BUSINESS STRATEGY",
+        title: "NexGen AI for Business",
+        subtitle: "Turn AI into business value.",
+        duration: "2 Months",
+        modulesText: "Module 1: AI Opportunity & Use-Case Identification\nModule 2: AI for Business Functions\nModule 3: AI-Powered Reporting & Decision Support\nModule 4: AI Strategy, ROI & Adoption",
+        tools: "ChatGPT, Gemini, Claude, NotebookLM, Perplexity, Canva, Gamma, Microsoft Copilot",
+        cta: "Enroll in AI for Business"
+      },
+      {
+        id: "mod-ai-6",
+        pillar: "ai",
+        badge: "06. AI AGENTS",
+        title: "NexGen AI Agents & Applied AI",
+        subtitle: "Build AI agents that can execute tasks.",
+        duration: "2 Months",
+        modulesText: "Module 1: AI Assistants vs AI Agents\nModule 2: Agent Design & Task Decomposition\nModule 3: Tools, Actions & Agent Workflows\nModule 4: Build AI Agent Projects",
+        tools: "ChatGPT, Gemini, Claude, NotebookLM, Perplexity, Canva, Gamma, n8n, Make",
+        cta: "Enroll in AI Agents"
+      },
+      {
+        id: "mod-ai-7",
+        pillar: "ai",
+        badge: "07. MASTERY",
+        title: "AI Mastery & Solutions",
+        subtitle: "Design and build AI-powered solutions.",
+        duration: "3 Months",
+        modulesText: "Module 1: Advanced Generative AI & LLMs\nModule 2: RAG & Knowledge-Based AI\nModule 3: AI Agents & Advanced Automation\nModule 4: AI APIs & Solution Integration\nModule 5: AI Evaluation, Governance & Responsible AI\nModule 6: Capstone: Build an AI Solution",
+        tools: "ChatGPT, Gemini, Claude, NotebookLM, Perplexity, Canva, Gamma, ChatGPT Data Analysis, n8n, Python basics, AI Dev Tools",
+        cta: "Enroll in AI Mastery"
+      },
+      {
+        id: "mod-ai-8",
+        pillar: "ai",
+        badge: "08. FACILITATOR CERTIFICATION",
+        title: "AI Train-the-Trainer",
+        subtitle: "Become an AI-enabled educator and facilitator.",
+        duration: "3 Months",
+        modulesText: "Module 1: AI & Generative AI Fundamentals\nModule 2: Prompt Engineering for Educators\nModule 3: AI for Teaching, Learning & Research\nModule 4: AI-Powered Content & Assessment\nModule 5: AI-Enabled Training Design & Facilitation\nModule 6: Capstone: Design & Deliver an AI-Enabled Program",
+        tools: "ChatGPT, Gemini, Claude, NotebookLM, Perplexity, Canva, Gamma, n8n",
+        cta: "Enroll in Train the Trainer"
+      },
+      {
+        id: "mod-auto-1",
+        pillar: "automation",
+        badge: "MODULE 01",
+        title: "Quality Tools Training Module",
+        subtitle: "Build analytical mastery for defect prevention and statistical quality control.",
+        duration: "2 Weeks",
+        modulesText: "Pareto Chart\nFishbone Diagram\nSPC & Control Charts\nCAPA & MSA",
+        tools: "Excel, Minitab",
+        cta: "Enroll Now"
+      },
+      {
+        id: "mod-auto-2",
+        pillar: "automation",
+        badge: "MODULE 02",
+        title: "Maintenance Tools Training Overview",
+        subtitle: "Hands-on PLC, HMI, sensors, and plant reliability practices.",
+        duration: "2 Weeks",
+        modulesText: "PLC Programming & Troubleshooting\nHMI Operator Interfaces\nIndustrial Sensors\nPdM & PM",
+        tools: "PLC, HMI, Sensors",
+        cta: "Enroll Now"
+      },
+      {
+        id: "mod-auto-3",
+        pillar: "automation",
+        badge: "MODULE 03",
+        title: "Production Tools Training Overview",
+        subtitle: "Lean production tools for output, flow, and waste reduction.",
+        duration: "2 Weeks",
+        modulesText: "OEE\n5S & Kaizen\nLine Balancing\nKanban & Andon",
+        tools: "OEE, Lean Toolkit",
+        cta: "Enroll Now"
+      },
+      {
+        id: "mod-auto-4",
+        pillar: "automation",
+        badge: "MODULE 04",
+        title: "Process Engineering Training Overview",
+        subtitle: "Process mapping, risk analysis, and industrial engineering methods.",
+        duration: "2 Weeks",
+        modulesText: "Control Plan\nPFMEA\nProcess Flow Diagram\nWork Instructions",
+        tools: "PFMEA, Control Plan",
+        cta: "Enroll Now"
+      },
+      {
+        id: "mod-auto-5",
+        pillar: "automation",
+        badge: "MODULE 05",
+        title: "Mechanical Tools Training Overview",
+        subtitle: "Machine systems, hydraulics, pneumatics, and plant maintenance basics.",
+        duration: "2 Weeks",
+        modulesText: "Pneumatic Circuit\nHydraulic Circuit\nBearings, Gears & Belts",
+        tools: "Mechanical Lab",
+        cta: "Enroll Now"
       }
     ],
     gallery: [
@@ -195,19 +418,19 @@ const NexGenStore = {
   // Init Data Store
   init() {
     const hasStorage = this._hasStorage();
-    const keys = ['events', 'courses', 'gallery', 'testimonials', 'leads'];
-    
+    const keys = ['events', 'courses', 'gallery', 'testimonials', 'leads', 'pillars', 'modules'];
+
     keys.forEach(k => {
       if (hasStorage) {
         try {
           if (!localStorage.getItem(`nexgen_${k}`)) {
-            localStorage.setItem(`nexgen_${k}`, JSON.stringify(this.defaults[k]));
+            localStorage.setItem(`nexgen_${k}`, JSON.stringify(this.defaults[k] || []));
           }
         } catch (e) {
-          if (!this._memoryStore[k]) this._memoryStore[k] = [...this.defaults[k]];
+          if (!this._memoryStore[k]) this._memoryStore[k] = [...(this.defaults[k] || [])];
         }
       } else {
-        if (!this._memoryStore[k]) this._memoryStore[k] = [...this.defaults[k]];
+        if (!this._memoryStore[k]) this._memoryStore[k] = [...(this.defaults[k] || [])];
       }
     });
   },

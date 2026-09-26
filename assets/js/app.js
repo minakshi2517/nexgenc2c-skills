@@ -496,5 +496,118 @@ document.addEventListener('DOMContentLoaded', () => {
       eventsTimer = setInterval(() => slideEvents('next'), 4000);
     });
   }
+
+  renderCmsContent();
 });
+
+function cmsEscape(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function cmsLines(text) {
+  return String(text || '').split(/\n/).map(s => s.trim()).filter(Boolean);
+}
+
+function renderCmsContent() {
+  if (typeof NexGenStore === 'undefined') return;
+  renderCmsPillars('cms-pillars-home', false);
+  renderCmsPillars('cms-pillars-programs', true);
+  renderCmsModules('cms-modules-ai', 'ai');
+  renderCmsModules('cms-modules-ai-catalog', 'ai');
+  renderCmsModules('cms-modules-automation', 'automation');
+  renderCmsModules('cms-modules-opex', 'opex');
+}
+
+function renderCmsPillars(containerId, detailed) {
+  const wrap = document.getElementById(containerId);
+  if (!wrap) return;
+  const pillars = NexGenStore.get('pillars') || [];
+  if (!pillars.length) return;
+
+  const themeMap = {
+    ai: { card: 'ai-card', icon: 'ai-icon', list: 'ai-list', pill: 'midnight', btn: 'btn-navy' },
+    automation: { card: 'tech-card', icon: 'tech-icon', list: 'tech-list', pill: 'forest-theme', btn: 'btn-forest' },
+    opex: { card: 'op-card', icon: 'op-icon', list: 'op-list', pill: '', btn: 'btn-primary' }
+  };
+
+  wrap.innerHTML = pillars.map(p => {
+    const theme = themeMap[p.theme] || themeMap.ai;
+    const bullets = detailed && p.detailBullets && p.detailBullets.length ? p.detailBullets : (p.bullets || []);
+    const extraBtn = detailed
+      ? `<a href="book-demo.html" class="btn btn-outline" style="width:100%;">${cmsEscape(p.demoCta || 'Book Demo')}</a>`
+      : '';
+    const capsLabel = detailed
+      ? `<strong style="font-size:0.88rem; color:var(--midnight-indigo); display:block; margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.05em;">Key Capabilities:</strong>`
+      : '';
+    return `
+      <div class="vertical-pillar-card ${theme.card}">
+        <div>
+          <div class="vertical-icon-box ${theme.icon}"><i class="fas ${cmsEscape(p.icon || 'fa-graduation-cap')}"></i></div>
+          <span class="pill-badge ${theme.pill}" style="font-size:0.75rem; margin-bottom:0.6rem;">${cmsEscape(p.badge || '')}</span>
+          <h3 style="font-size:1.4rem; color:var(--midnight-indigo); margin-bottom:0.4rem;">${cmsEscape(p.title)}</h3>
+          <p style="font-size:0.92rem; font-weight:700; color:var(--midnight-indigo); margin-bottom:0.8rem;">${cmsEscape(p.tagline)}</p>
+          <p style="font-size:0.88rem; color:var(--text-body-dark); line-height:1.6; margin-bottom:1.2rem;">${cmsEscape(p.description)}</p>
+          <div class="course-duration-bar">
+            <span><i class="far fa-clock"></i> Course Duration: ${cmsEscape(p.duration)}</span>
+          </div>
+          ${capsLabel}
+          <ul class="capabilities-list ${theme.list}">
+            ${bullets.map(b => `<li><i class="fas fa-check-circle"></i> <div>${cmsEscape(b)}</div></li>`).join('')}
+          </ul>
+        </div>
+        <div style="margin-top:1.5rem; display:flex; flex-direction:column; gap:0.6rem;">
+          <a href="${cmsEscape(p.link || '#')}" class="btn ${theme.btn}" style="width:100%;">${cmsEscape(p.cta || 'View Programs')}</a>
+          ${extraBtn}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderCmsModules(containerId, pillar) {
+  const wrap = document.getElementById(containerId);
+  if (!wrap) return;
+  const modules = (NexGenStore.get('modules') || []).filter(m => m.pillar === pillar);
+  if (!modules.length) {
+    wrap.style.display = 'none';
+    const section = wrap.closest('section');
+    if (section && (wrap.id === 'cms-modules-opex' || wrap.id === 'cms-modules-automation')) {
+      const onlyCms = section.querySelectorAll('[id^="cms-modules-"]').length === 1 && !section.querySelector('.industrial-table');
+      if (onlyCms) section.style.display = 'none';
+    }
+    return;
+  }
+  wrap.style.display = '';
+  if (wrap.parentElement && wrap.parentElement.classList.contains('container')) {
+    const section = wrap.closest('section');
+    if (section) section.style.display = '';
+  }
+  wrap.innerHTML = modules.map(mod => {
+    const items = cmsLines(mod.modulesText);
+    const tools = String(mod.tools || '').split(',').map(s => s.trim()).filter(Boolean);
+    return `
+      <div class="course-item-card interactive-card reveal">
+        <div>
+          <span class="course-num-badge">${cmsEscape(mod.badge || 'MODULE')}</span>
+          <h3 class="course-title">${cmsEscape(mod.title)}</h3>
+          <p class="course-subtitle">${cmsEscape(mod.subtitle)}</p>
+          <div class="course-duration-bar">
+            <span><i class="far fa-clock"></i> Course Duration: ${cmsEscape(mod.duration)}</span>
+            <span><i class="fas fa-cubes"></i> ${items.length} Modules</span>
+          </div>
+          <ul class="course-modules-list">
+            ${items.map(item => `<li class="module-box"><div class="module-header-text"><i class="fas fa-check-circle" style="color:var(--warm-coral); margin-right:6px;"></i> ${cmsEscape(item)}</div></li>`).join('')}
+          </ul>
+        </div>
+        <div>
+          ${tools.length ? `<div class="course-tools-strip" style="margin-bottom:1.2rem;"><strong>Key Tools:</strong> ${tools.map(t => `<span class="tool-tag">${cmsEscape(t)}</span>`).join('')}</div>` : ''}
+          <a href="book-demo.html" class="btn btn-primary btn-block"><span>${cmsEscape(mod.cta || 'Enroll Now')}</span> <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>`;
+  }).join('');
+}
+
 

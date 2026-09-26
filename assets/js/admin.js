@@ -166,7 +166,8 @@ window.handleStep2Submit = async function(e) {
     // Load initial data
     if (typeof loadDashboardStats === "function") {
       loadDashboardStats();
-      loadCoursesTable();
+      loadPillarsAdmin();
+      loadModulesTable();
       loadEventsTable();
       loadGalleryGrid();
       loadTestimonialsList();
@@ -294,7 +295,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial Load
   loadDashboardStats();
-  loadCoursesTable();
+  loadPillarsAdmin();
+  loadModulesTable();
   loadEventsTable();
   loadGalleryGrid();
   loadTestimonialsList();
@@ -302,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function loadTabData(tabId) {
     if (tabId === "dashboard") loadDashboardStats();
-    if (tabId === "courses") loadCoursesTable();
+    if (tabId === "courses") { loadPillarsAdmin(); loadModulesTable(); }
     if (tabId === "events") loadEventsTable();
     if (tabId === "gallery") loadGalleryGrid();
     if (tabId === "testimonials") loadTestimonialsList();
@@ -314,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   function loadDashboardStats() {
     const leads = NexGenStore.get("leads") || [];
-    const courses = NexGenStore.get("courses") || [];
+    const courses = NexGenStore.get("modules") || [];
     const events = NexGenStore.get("events") || [];
     const gallery = NexGenStore.get("gallery") || [];
 
@@ -344,61 +346,142 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
-  // COURSES MANAGEMENT
+  // PILLARS + MODULES
   // ==========================================
-  function loadCoursesTable() {
-    const courses = NexGenStore.get("courses") || [];
-    const tbody = document.getElementById("courses-tbody");
-    if (!tbody) return;
+  const PILLAR_LABELS = {
+    ai: "Artificial Intelligence",
+    automation: "Industrial Automation",
+    opex: "Operational Excellence"
+  };
 
-    tbody.innerHTML = courses.map((course, idx) => `
+  function loadPillarsAdmin() {
+    const grid = document.getElementById("admin-pillars-grid");
+    if (!grid) return;
+    const pillars = NexGenStore.get("pillars") || [];
+    grid.innerHTML = pillars.map((p) => `
+      <div class="admin-stat-card" style="flex-direction:column; align-items:flex-start; min-height:auto;">
+        <span class="admin-badge cyan">${p.badge || ""}</span>
+        <h3 style="color:#fff; font-size:1.05rem; margin:0.6rem 0 0.3rem;">${p.title}</h3>
+        <p style="color:#94a3b8; font-size:0.82rem; margin:0 0 0.8rem;">${p.tagline || ""}</p>
+        <button class="btn btn-sm btn-primary" onclick="openPillarEditor('${p.id}')"><i class="fas fa-pen"></i> Edit card</button>
+      </div>
+    `).join("");
+  }
+
+  window.openPillarEditor = function(id) {
+    const pillar = (NexGenStore.get("pillars") || []).find((p) => p.id === id);
+    if (!pillar) return;
+    document.getElementById("p-id").value = pillar.id;
+    document.getElementById("p-badge").value = pillar.badge || "";
+    document.getElementById("p-duration").value = pillar.duration || "";
+    document.getElementById("p-title").value = pillar.title || "";
+    document.getElementById("p-tagline").value = pillar.tagline || "";
+    document.getElementById("p-desc").value = pillar.description || "";
+    document.getElementById("p-bullets").value = (pillar.bullets || []).join("\n");
+    document.getElementById("p-detail-bullets").value = (pillar.detailBullets || []).join("\n");
+    document.getElementById("p-cta").value = pillar.cta || "";
+    document.getElementById("p-link").value = pillar.link || "";
+    document.getElementById("p-icon").value = pillar.icon || "";
+    document.getElementById("pillar-modal-title").textContent = "Edit " + pillar.title;
+    openAdminModal("modal-edit-pillar");
+  };
+
+  const editPillarForm = document.getElementById("edit-pillar-form");
+  if (editPillarForm) {
+    editPillarForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = document.getElementById("p-id").value;
+      NexGenStore.updateItem("pillars", id, {
+        badge: document.getElementById("p-badge").value.trim(),
+        duration: document.getElementById("p-duration").value.trim(),
+        title: document.getElementById("p-title").value.trim(),
+        tagline: document.getElementById("p-tagline").value.trim(),
+        description: document.getElementById("p-desc").value.trim(),
+        bullets: document.getElementById("p-bullets").value.split("\n").map((s) => s.trim()).filter(Boolean),
+        detailBullets: document.getElementById("p-detail-bullets").value.split("\n").map((s) => s.trim()).filter(Boolean),
+        cta: document.getElementById("p-cta").value.trim(),
+        link: document.getElementById("p-link").value.trim(),
+        icon: document.getElementById("p-icon").value.trim() || "fa-graduation-cap"
+      });
+      closeAdminModal("modal-edit-pillar");
+      loadPillarsAdmin();
+      alert("Pillar card updated. Refresh the website to see it.");
+    });
+  }
+
+  function loadModulesTable() {
+    const tbody = document.getElementById("modules-tbody");
+    if (!tbody) return;
+    const modules = NexGenStore.get("modules") || [];
+    tbody.innerHTML = modules.map((mod, idx) => `
       <tr>
         <td>#${idx + 1}</td>
+        <td><span class="admin-badge cyan">${PILLAR_LABELS[mod.pillar] || mod.pillar}</span></td>
+        <td><strong>${mod.title}</strong></td>
+        <td>${mod.subtitle || ""}</td>
+        <td>${mod.duration || ""}</td>
         <td>
-          <div style="display:flex; align-items:center; gap:0.6rem;">
-            <i class="fas ${course.icon || 'fa-graduation-cap'}" style="color:var(--accent-cyan);"></i>
-            <strong>${course.title}</strong>
-          </div>
-        </td>
-        <td><span class="admin-badge cyan">${course.category}</span></td>
-        <td>${course.target}</td>
-        <td>${course.duration}</td>
-        <td>
-          <button onclick="deleteCourse('${course.id}')" class="admin-action-btn delete" title="Delete Course">
-            <i class="fas fa-trash"></i>
-          </button>
+          <button onclick="openModuleEditor('${mod.id}')" class="admin-action-btn" title="Edit"><i class="fas fa-pen"></i></button>
+          <button onclick="deleteModule('${mod.id}')" class="admin-action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
         </td>
       </tr>
     `).join("");
   }
 
-  window.deleteCourse = function(id) {
-    if (confirm("Are you sure you want to delete this course?")) {
-      NexGenStore.deleteItem("courses", id);
-      loadCoursesTable();
-      loadDashboardStats();
+  window.openModuleEditor = function(id) {
+    const form = document.getElementById("edit-module-form");
+    form.reset();
+    document.getElementById("m-id").value = "";
+    document.getElementById("module-modal-title").textContent = "Add Module";
+    if (id) {
+      const mod = (NexGenStore.get("modules") || []).find((m) => m.id === id);
+      if (mod) {
+        document.getElementById("m-id").value = mod.id;
+        document.getElementById("m-pillar").value = mod.pillar || "ai";
+        document.getElementById("m-badge").value = mod.badge || "";
+        document.getElementById("m-duration").value = mod.duration || "";
+        document.getElementById("m-title").value = mod.title || "";
+        document.getElementById("m-subtitle").value = mod.subtitle || "";
+        document.getElementById("m-modules").value = mod.modulesText || "";
+        document.getElementById("m-tools").value = mod.tools || "";
+        document.getElementById("m-cta").value = mod.cta || "";
+        document.getElementById("module-modal-title").textContent = "Edit Module";
+      }
     }
+    openAdminModal("modal-edit-module");
   };
 
-  const addCourseForm = document.getElementById("add-course-form");
-  if (addCourseForm) {
-    addCourseForm.addEventListener("submit", (e) => {
+  window.deleteModule = function(id) {
+    if (!confirm("Delete this module from the website?")) return;
+    NexGenStore.deleteItem("modules", id);
+    loadModulesTable();
+    loadDashboardStats();
+  };
+
+  const editModuleForm = document.getElementById("edit-module-form");
+  if (editModuleForm) {
+    editModuleForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const newCourse = {
-        title: document.getElementById("c-title").value,
-        category: document.getElementById("c-category").value,
-        target: document.getElementById("c-target").value,
-        duration: document.getElementById("c-duration").value,
-        mode: document.getElementById("c-mode").value,
-        icon: document.getElementById("c-icon").value || "fa-robot",
-        description: document.getElementById("c-desc").value
+      const payload = {
+        pillar: document.getElementById("m-pillar").value,
+        badge: document.getElementById("m-badge").value.trim(),
+        duration: document.getElementById("m-duration").value.trim(),
+        title: document.getElementById("m-title").value.trim(),
+        subtitle: document.getElementById("m-subtitle").value.trim(),
+        modulesText: document.getElementById("m-modules").value,
+        tools: document.getElementById("m-tools").value.trim(),
+        cta: document.getElementById("m-cta").value.trim() || "Enroll Now"
       };
-      NexGenStore.addItem("courses", newCourse);
-      addCourseForm.reset();
-      closeAdminModal("modal-add-course");
-      loadCoursesTable();
+      const id = document.getElementById("m-id").value;
+      if (id) {
+        NexGenStore.updateItem("modules", id, payload);
+      } else {
+        NexGenStore.addItem("modules", payload);
+      }
+      closeAdminModal("modal-edit-module");
+      loadModulesTable();
       loadDashboardStats();
-      alert("Course added successfully!");
+      alert("Module saved. Refresh the website page to see it.");
     });
   }
 
@@ -640,12 +723,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (confirm("Reset all store data to defaults? This will reload sample courses, events, gallery, and testimonials.")) {
       localStorage.removeItem("nexgen_events");
       localStorage.removeItem("nexgen_courses");
+      localStorage.removeItem("nexgen_pillars");
+      localStorage.removeItem("nexgen_modules");
       localStorage.removeItem("nexgen_gallery");
       localStorage.removeItem("nexgen_testimonials");
       localStorage.removeItem("nexgen_leads");
       NexGenStore.init();
       loadDashboardStats();
-      loadCoursesTable();
+      loadPillarsAdmin();
+      loadModulesTable();
       loadEventsTable();
       loadGalleryGrid();
       loadTestimonialsList();
@@ -653,6 +739,10 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Store reset to defaults!");
     }
   };
+
+  window.loadPillarsAdmin = loadPillarsAdmin;
+  window.loadModulesTable = loadModulesTable;
+  window.loadDashboardStats = loadDashboardStats;
 
   // Admin Modal Controls
   window.openAdminModal = function(modalId) {
