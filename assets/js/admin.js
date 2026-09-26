@@ -497,6 +497,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("m-modules").value = mod.modulesText || "";
         document.getElementById("m-tools").value = mod.tools || "";
         document.getElementById("m-cta").value = mod.cta || "";
+        const imageField = document.getElementById("m-image");
+        if (imageField) imageField.value = mod.image || "";
         document.getElementById("module-modal-title").textContent = "Edit Module";
       }
     }
@@ -522,6 +524,7 @@ document.addEventListener("DOMContentLoaded", () => {
         subtitle: document.getElementById("m-subtitle").value.trim(),
         modulesText: document.getElementById("m-modules").value,
         tools: document.getElementById("m-tools").value.trim(),
+        image: (document.getElementById("m-image") && document.getElementById("m-image").value.trim()) || "",
         cta: document.getElementById("m-cta").value.trim() || "Enroll Now"
       };
       const id = document.getElementById("m-id").value;

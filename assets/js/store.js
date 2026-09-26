@@ -294,6 +294,150 @@ const NexGenStore = {
         modulesText: "Pneumatic Circuit\nHydraulic Circuit\nBearings, Gears & Belts",
         tools: "Mechanical Lab",
         cta: "Enroll Now"
+      },
+      {
+        id: "mod-opex-1",
+        pillar: "opex",
+        badge: "MODULE 01 • PRODUCTIVITY",
+        title: "OEE (Overall Equipment Effectiveness)",
+        subtitle: "The gold standard for measuring shop-floor manufacturing productivity and equipment health.",
+        duration: "3 Days",
+        modulesText: "Measures performance across Availability, Performance, and Quality\nIdentifies hidden losses due to downtime, speed loss, or defects\nHelps maximize equipment utilization and plant output\nDrives continuous data-driven improvement",
+        tools: "OEE Dashboard",
+        image: "assets/images/operational/tool_oee.jpg",
+        cta: "Book OEE Lab Demo →"
+      },
+      {
+        id: "mod-opex-2",
+        pillar: "opex",
+        badge: "MODULE 02 • QUALITY",
+        title: "7 QC Tools (Quality Control)",
+        subtitle: "Universal data-driven statistical tools for systematic problem solving and defect elimination.",
+        duration: "3 Days",
+        modulesText: "Structured problem solving and root cause quality control\nPareto, Fishbone, Histogram, Control Chart, Scatter, Check Sheet, Flowchart\nData-driven decision making\nFoundation of Six Sigma DMAIC and TQM",
+        tools: "7 QC Toolkit",
+        image: "assets/images/operational/tool_7qc.jpg",
+        cta: "Enroll in 7 QC Tools →"
+      },
+      {
+        id: "mod-opex-3",
+        pillar: "opex",
+        badge: "MODULE 03 • WORKFLOW",
+        title: "Kanban (Visual Scheduling)",
+        subtitle: "Visual pull-based workflow management system to eliminate shop-floor inventory bottlenecks.",
+        duration: "3 Days",
+        modulesText: "Visual scheduling for shop-floor workflow\nReduces overproduction and improves transparency\nPull-based Just-In-Time production\nBetter team collaboration and accountability",
+        tools: "Kanban Board",
+        image: "assets/images/operational/tool_kanban.jpg?v=3",
+        cta: "Explore Kanban Workshop →"
+      },
+      {
+        id: "mod-opex-4",
+        pillar: "opex",
+        badge: "MODULE 04 • ZERO DEFECT",
+        title: "Poka-Yoke (Mistake Proofing)",
+        subtitle: "Japanese engineering mechanisms to guarantee defect-free production.",
+        duration: "3 Days",
+        modulesText: "Foolproof error prevention\nJigs, sensors, and interlocks to avoid human mistakes\nZero-defect manufacturing and scrap reduction\nReliability built into assembly processes",
+        tools: "Poka-Yoke Lab",
+        image: "assets/images/operational/tool_poka_yoke.jpg?v=3",
+        cta: "Hands-On Poka-Yoke →"
+      },
+      {
+        id: "mod-opex-5",
+        pillar: "opex",
+        badge: "MODULE 05 • EFFICIENCY",
+        title: "Single Piece Flow",
+        subtitle: "Continuous flow manufacturing to eliminate WIP and compress lead time.",
+        duration: "3 Days",
+        modulesText: "One unit at a time through each assembly step\nMinimizes waiting, batching, and lead time\nImproves flexibility and responsiveness\nCore Lean and JIT principle",
+        tools: "Flow Lab",
+        image: "assets/images/operational/tool_single_piece_flow.jpg?v=3",
+        cta: "Learn Flow Optimization →"
+      },
+      {
+        id: "mod-opex-6",
+        pillar: "opex",
+        badge: "MODULE 06 • WASTE ELIMINATION",
+        title: "Lean Waste (TIMWOODS)",
+        subtitle: "Hunt and eradicate the 8 deadly wastes in any operational process.",
+        duration: "3 Days",
+        modulesText: "Transportation, Inventory, Motion, Waiting, Overproduction, Overprocessing, Defects, Skills\nEliminates non-value-adding activities\nImproves flow, efficiency, and cost\nDaily Kaizen culture",
+        tools: "TIMWOODS Audit",
+        image: "assets/images/operational/tool_timwoods_lean_waste.jpg?v=3",
+        cta: "TIMWOODS Audit Training →"
+      },
+      {
+        id: "mod-opex-7",
+        pillar: "opex",
+        badge: "MODULE 07 • REAL-TIME ALERT",
+        title: "Andon (Visual Signal System)",
+        subtitle: "Real-time visual problem reporting to halt defects and escalate line issues.",
+        duration: "3 Days",
+        modulesText: "Audio-light signaling for shop-floor problems\nInstant alerts to engineering and maintenance\nRapid response and accountability\nBetter operator-supervisor communication",
+        tools: "Andon System",
+        image: "assets/images/operational/tool_andon.jpg?v=3",
+        cta: "Andon Simulation Lab →"
+      },
+      {
+        id: "mod-opex-8",
+        pillar: "opex",
+        badge: "MODULE 08 • TIME STUDY",
+        title: "Cycle Time & Takt Time",
+        subtitle: "Time study and pacing analytics to balance line speeds with demand.",
+        duration: "3 Days",
+        modulesText: "Measures time for one full production cycle\nFinds bottlenecks and micro-inefficiencies\nCapacity planning and line balancing\nOptimize flow against Takt Time",
+        tools: "Time Study",
+        image: "assets/images/operational/tool_cycletime.jpg?v=4",
+        cta: "Time Study Workshop →"
+      },
+      {
+        id: "mod-opex-9",
+        pillar: "opex",
+        badge: "MODULE 09 • THROUGHPUT",
+        title: "Bottleneck Analysis",
+        subtitle: "Theory of Constraints to identify and remove capacity-limiting operations.",
+        duration: "3 Days",
+        modulesText: "Finds process steps that limit throughput\nFocuses improvement where it matters most\nReduces delays and inventory build-up\nBalanced, synchronized workflow",
+        tools: "TOC / Bottleneck",
+        image: "assets/images/operational/tool_bottleneck.jpg?v=4",
+        cta: "Bottleneck Diagnostics →"
+      },
+      {
+        id: "mod-opex-10",
+        pillar: "opex",
+        badge: "MODULE 10 • KAIZEN LOOP",
+        title: "PDCA (Plan-Do-Check-Act)",
+        subtitle: "The Deming cycle for disciplined organizational learning and growth.",
+        duration: "3 Days",
+        modulesText: "Scientific approach for continuous improvement\nPilot testing and learning from results\nClosed-loop feedback for standards\nFoundation for Kaizen, Six Sigma, and ISO",
+        tools: "PDCA",
+        image: "assets/images/operational/tool_pdca.jpg?v=4",
+        cta: "PDCA Kaizen Workshop →"
+      },
+      {
+        id: "mod-opex-11",
+        pillar: "opex",
+        badge: "MODULE 11 • WORKPLACE 5S",
+        title: "5S Workplace Organization",
+        subtitle: "Sort, Set in Order, Shine, Standardize, and Sustain for a visual workspace.",
+        duration: "3 Days",
+        modulesText: "Seiri, Seiton, Seiso, Seiketsu, Shitsuke\nOrganized, clean, visual, efficient workspace\nImproves safety and reduces search time\nFoundation for Lean discipline",
+        tools: "5S Audit",
+        image: "assets/images/operational/tool_5s.jpg?v=4",
+        cta: "5S Audit Masterclass →"
+      },
+      {
+        id: "mod-opex-12",
+        pillar: "opex",
+        badge: "MODULE 12 • VALUE STREAM",
+        title: "Value Stream Mapping (VSM)",
+        subtitle: "End-to-end visual mapping of information and material flow.",
+        duration: "3 Days",
+        modulesText: "Maps flows from supplier to client\nFinds waste, waiting, and improvement opportunities\nFuture-state operational design\nSupports Lean transformation planning",
+        tools: "VSM",
+        image: "assets/images/operational/tool_vsm.jpg?v=4",
+        cta: "Master VSM Mapping →"
       }
     ],
     gallery: [
@@ -433,6 +577,21 @@ const NexGenStore = {
         if (!this._memoryStore[k]) this._memoryStore[k] = [...(this.defaults[k] || [])];
       }
     });
+    this._mergeMissingModules();
+  },
+
+  _mergeMissingModules() {
+    const list = this.get("modules") || [];
+    const defaults = this.defaults.modules || [];
+    const ids = new Set(list.map((m) => m.id));
+    let added = false;
+    defaults.forEach((item) => {
+      if (!ids.has(item.id)) {
+        list.push(item);
+        added = true;
+      }
+    });
+    if (added) this.set("modules", list);
   },
 
   // Getters

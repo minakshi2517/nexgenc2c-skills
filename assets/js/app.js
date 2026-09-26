@@ -572,6 +572,7 @@ function renderCmsModules(containerId, pillar) {
   if (!wrap) return;
   const modules = (NexGenStore.get('modules') || []).filter(m => m.pillar === pillar);
   if (!modules.length) {
+    if (wrap.id === 'cms-modules-opex') return;
     wrap.style.display = 'none';
     const section = wrap.closest('section');
     if (section && (wrap.id === 'cms-modules-opex' || wrap.id === 'cms-modules-automation')) {
@@ -581,10 +582,37 @@ function renderCmsModules(containerId, pillar) {
     return;
   }
   wrap.style.display = '';
-  if (wrap.parentElement && wrap.parentElement.classList.contains('container')) {
-    const section = wrap.closest('section');
-    if (section) section.style.display = '';
+  const parentSection = wrap.closest('section');
+  if (parentSection) parentSection.style.display = '';
+
+  if (pillar === 'opex') {
+    wrap.innerHTML = modules.map(mod => {
+      const items = cmsLines(mod.modulesText);
+      const img = mod.image || 'assets/images/operational/tool_oee.jpg';
+      return `
+      <div class="lean-tool-item-card">
+        <div class="lean-tool-img-header">
+          <img src="${cmsEscape(img)}" alt="${cmsEscape(mod.title)}">
+        </div>
+        <div class="lean-tool-body">
+          <div>
+            <span class="lean-tool-badge">${cmsEscape(mod.badge || 'MODULE')}</span>
+            <h3 class="lean-tool-title">${cmsEscape(mod.title)}</h3>
+            <div class="course-duration-bar" style="margin-bottom:0.85rem;"><span><i class="far fa-clock"></i> Course Duration: ${cmsEscape(mod.duration)}</span></div>
+            <p class="lean-tool-desc">${cmsEscape(mod.subtitle)}</p>
+            <ul class="lean-tool-points">
+              ${items.map(item => `<li><i class="fas fa-check-circle"></i> <span>${cmsEscape(item)}</span></li>`).join('')}
+            </ul>
+          </div>
+          <div>
+            <a href="book-demo.html" class="btn btn-sm btn-primary" style="width:100%;">${cmsEscape(mod.cta || 'Enroll Now')}</a>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+    return;
   }
+
   wrap.innerHTML = modules.map(mod => {
     const items = cmsLines(mod.modulesText);
     const tools = String(mod.tools || '').split(',').map(s => s.trim()).filter(Boolean);
