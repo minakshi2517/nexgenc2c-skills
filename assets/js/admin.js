@@ -14,7 +14,10 @@ async function checkAdminAuth() {
   const userEmailDisplay = document.getElementById("admin-user-email");
 
   if (!token) {
-    if (authOverlay) authOverlay.style.display = "flex";
+    if (authOverlay) {
+      authOverlay.style.display = "flex";
+      authOverlay.style.pointerEvents = "auto";
+    }
     if (cmsWrapper) cmsWrapper.style.display = "none";
     return false;
   }
@@ -26,20 +29,29 @@ async function checkAdminAuth() {
     const data = await res.json();
 
     if (data.authenticated) {
-      if (authOverlay) authOverlay.style.display = "none";
+      if (authOverlay) {
+        authOverlay.style.display = "none";
+        authOverlay.style.pointerEvents = "none";
+      }
       if (cmsWrapper) cmsWrapper.style.display = "block";
       if (userEmailDisplay) userEmailDisplay.textContent = data.admin.email;
       return true;
     } else {
       sessionStorage.removeItem("nexgen_admin_token");
       sessionStorage.removeItem("nexgen_admin_email");
-      if (authOverlay) authOverlay.style.display = "flex";
+      if (authOverlay) {
+      authOverlay.style.display = "flex";
+      authOverlay.style.pointerEvents = "auto";
+    }
       if (cmsWrapper) cmsWrapper.style.display = "none";
       return false;
     }
   } catch (err) {
     // If backend is running offline or static fallback
-    if (authOverlay) authOverlay.style.display = "flex";
+    if (authOverlay) {
+      authOverlay.style.display = "flex";
+      authOverlay.style.pointerEvents = "auto";
+    }
     if (cmsWrapper) cmsWrapper.style.display = "none";
     return false;
   }
@@ -157,7 +169,10 @@ window.handleStep2Submit = async function(e) {
     // Hide Auth Gateway & Reveal Dashboard
     const authOverlay = document.getElementById("admin-auth-overlay");
     const cmsWrapper = document.getElementById("admin-cms-wrapper");
-    if (authOverlay) authOverlay.style.display = "none";
+    if (authOverlay) {
+      authOverlay.style.display = "none";
+      authOverlay.style.pointerEvents = "none";
+    }
     if (cmsWrapper) cmsWrapper.style.display = "block";
     
     const userEmailDisplay = document.getElementById("admin-user-email");
@@ -245,6 +260,50 @@ function showEmailOtpToast(otp, email) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  window.openAdminModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.add("active");
+    modal.style.display = "flex";
+  };
+
+  window.closeAdminModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.remove("active");
+    modal.style.display = "none";
+  };
+
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#btn-add-module")) {
+      e.preventDefault();
+      if (typeof window.openModuleEditor === "function") window.openModuleEditor();
+      return;
+    }
+    if (e.target.closest("#btn-reset-demo")) {
+      e.preventDefault();
+      if (typeof window.resetAllDemoData === "function") window.resetAllDemoData();
+      return;
+    }
+    const pillarBtn = e.target.closest(".js-edit-pillar");
+    if (pillarBtn) {
+      e.preventDefault();
+      if (typeof window.openPillarEditor === "function") window.openPillarEditor(pillarBtn.getAttribute("data-id"));
+      return;
+    }
+    const editMod = e.target.closest(".js-edit-module");
+    if (editMod) {
+      e.preventDefault();
+      if (typeof window.openModuleEditor === "function") window.openModuleEditor(editMod.getAttribute("data-id"));
+      return;
+    }
+    const delMod = e.target.closest(".js-delete-module");
+    if (delMod) {
+      e.preventDefault();
+      if (typeof window.deleteModule === "function") window.deleteModule(delMod.getAttribute("data-id"));
+    }
+  });
+
   // Check Auth State First
   checkAdminAuth();
 
@@ -293,15 +352,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Initial Load
-  loadDashboardStats();
-  loadPillarsAdmin();
-  loadModulesTable();
-  loadEventsTable();
-  loadGalleryGrid();
-  loadTestimonialsList();
-  loadLeadsTable();
-
   function loadTabData(tabId) {
     if (tabId === "dashboard") loadDashboardStats();
     if (tabId === "courses") { loadPillarsAdmin(); loadModulesTable(); }
@@ -328,20 +378,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // Recent leads preview
     const recentLeadsTable = document.getElementById("recent-leads-tbody");
     if (recentLeadsTable) {
-      recentLeadsTable.innerHTML = leads.slice(0, 5).map(lead => `
+      recentLeadsTable.innerHTML = leads.slice(0, 5).map(lead => {
+        const phone = String(lead.phone || "").replace(/[^0-9]/g, "");
+        return `
         <tr>
-          <td><strong>${lead.name}</strong></td>
-          <td>${lead.phone}</td>
-          <td><span class="admin-badge blue">${lead.program}</span></td>
-          <td>${lead.date}</td>
-          <td><span class="admin-badge ${lead.status === 'New' ? 'gold' : 'emerald'}">${lead.status}</span></td>
+          <td><strong>${lead.name || ""}</strong></td>
+          <td>${lead.phone || ""}</td>
+          <td><span class="admin-badge blue">${lead.program || ""}</span></td>
+          <td>${lead.date || ""}</td>
+          <td><span class="admin-badge ${lead.status === 'New' ? 'gold' : 'emerald'}">${lead.status || "New"}</span></td>
           <td>
-            <a href="https://wa.me/91${lead.phone.replace(/[^0-9]/g, '')}?text=Hi%20${encodeURIComponent(lead.name)}%2C%20thank%20you%20for%20contacting%20NexGen%20C2C%20Skills." target="_blank" class="admin-action-btn wa" title="Chat on WhatsApp">
+            <a href="https://wa.me/91${phone}?text=Hi%20${encodeURIComponent(lead.name || "")}%2C%20thank%20you%20for%20contacting%20NexGen%20C2C%20Skills." target="_blank" class="admin-action-btn wa" title="Chat on WhatsApp">
               <i class="fab fa-whatsapp"></i>
             </a>
           </td>
-        </tr>
-      `).join("");
+        </tr>`;
+      }).join("");
     }
   }
 
@@ -363,7 +415,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="admin-badge cyan">${p.badge || ""}</span>
         <h3 style="color:#fff; font-size:1.05rem; margin:0.6rem 0 0.3rem;">${p.title}</h3>
         <p style="color:#94a3b8; font-size:0.82rem; margin:0 0 0.8rem;">${p.tagline || ""}</p>
-        <button class="btn btn-sm btn-primary" onclick="openPillarEditor('${p.id}')"><i class="fas fa-pen"></i> Edit card</button>
+        <button class="btn btn-sm btn-primary js-edit-pillar" type="button" data-id="${p.id}"><i class="fas fa-pen"></i> Edit card</button>
       </div>
     `).join("");
   }
@@ -421,8 +473,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${mod.subtitle || ""}</td>
         <td>${mod.duration || ""}</td>
         <td>
-          <button onclick="openModuleEditor('${mod.id}')" class="admin-action-btn" title="Edit"><i class="fas fa-pen"></i></button>
-          <button onclick="deleteModule('${mod.id}')" class="admin-action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+          <button type="button" class="admin-action-btn js-edit-module" data-id="${mod.id}" title="Edit"><i class="fas fa-pen"></i></button>
+          <button type="button" class="admin-action-btn delete js-delete-module" data-id="${mod.id}" title="Delete"><i class="fas fa-trash"></i></button>
         </td>
       </tr>
     `).join("");
@@ -744,14 +796,15 @@ document.addEventListener("DOMContentLoaded", () => {
   window.loadModulesTable = loadModulesTable;
   window.loadDashboardStats = loadDashboardStats;
 
-  // Admin Modal Controls
-  window.openAdminModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) modal.classList.add("active");
-  };
-
-  window.closeAdminModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) modal.classList.remove("active");
-  };
+  try {
+    loadDashboardStats();
+    loadPillarsAdmin();
+    loadModulesTable();
+    loadEventsTable();
+    loadGalleryGrid();
+    loadTestimonialsList();
+    loadLeadsTable();
+  } catch (err) {
+    console.error("Admin data load failed:", err);
+  }
 });

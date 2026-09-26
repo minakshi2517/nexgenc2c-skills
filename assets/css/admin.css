@@ -1,9 +1,11 @@
 /* ==========================================================================
    Admin CMS Portal (dark dashboard)
    ========================================================================== */
-#admin-cms-wrapper {
-  min-height: 100vh;
-  background: #050914;
+#admin-auth-overlay {
+  pointer-events: auto;
+}
+#admin-auth-overlay[style*="display: none"] {
+  pointer-events: none !important;
 }
 
 #admin-cms-wrapper .header-nav {
